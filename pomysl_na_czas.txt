@@ -1,0 +1,26 @@
+Scanner cons = new Scanner(System.in);
+Random rand = new Random();
+
+beforeTime = "18.05.2020_12";
+
+
+// stoppedTime = 1 //czas jest zatrzymany
+
+if(wczytywanie z konsoli) {
+
+	fromCity = cons.next();
+	fromCountry = cons.next();
+	toCity = cons.next();
+	toCountry = cons.next();
+	...
+
+	currentTime = beforeTime;
+}
+else {//generowanie przez bota
+	fromCity = rand.next();
+	fromCountry = rand.next();
+	toCity = rand.next();
+	toCountry = rand.next();
+	
+	currentTime = ToOurTime(SystemTime());
+}
