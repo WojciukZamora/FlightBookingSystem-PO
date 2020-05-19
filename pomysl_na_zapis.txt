@@ -37,3 +37,15 @@ Time.txt
 {
 	18.05.2020_12
 }
+
+
+
+
+RandomClients.txt
+{
+1	Person Janina Kowalska 2638102032
+2	Firm Kleix 6473892
+3	
+}
+
+
