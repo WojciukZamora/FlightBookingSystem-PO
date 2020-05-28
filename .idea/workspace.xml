@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4f22b9f4-ba0c-4834-ae9f-916428f66e07" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/files/airports.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Airport.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pomysl_na_zapis.txt" beforeDir="false" afterPath="$PROJECT_DIR$/pomysl_na_zapis.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/FlightAdministrationSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FlightAdministrationSystem.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -27,7 +29,6 @@
   </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
@@ -57,10 +58,14 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="275" y="22" key="#Inspections/0.0.1366.728@0.0.1366.728" timestamp="1590616790486" />
-    <state x="264" y="0" key="CommitChangelistDialog2" timestamp="1590616890841">
+    <state x="264" y="0" key="CommitChangelistDialog2" timestamp="1590617148797">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="264" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1590616890841" />
+    <state x="264" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1590617148797" />
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1590617137483">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1590617137483" />
     <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1590616859054">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

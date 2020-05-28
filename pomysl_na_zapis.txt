@@ -1,4 +1,4 @@
-Lotniska.txt
+Airports.txt
 {
 	Warsaw Poland BIG 50 BUSINESS
 	GrandCanaria Spain BIG 65 TOURIST
@@ -26,12 +26,7 @@ SzybkiSzybowiec3000.txt
 
 }
 
-27814.txt (numer lotu)
-{
-	distance fromCity fromCountry toCity toCountry startTime endTime
-	950	Paris France NewYork USA 17.07.2020_21 18.07.2020_9
-	
-}
+
 
 Time.txt
 {
@@ -43,9 +38,39 @@ Time.txt
 
 RandomClients.txt
 {
-1	Person Janina Kowalska 2638102032
+1	Person Janina Kowalska 26381020352
 2	Firm Kleix 6473892
 3	
 }
 
+
+
+
+
+
+
+Spain_GrandCanariaFlights.txt
+{
+	462188 			(numer lotu)
+	213522
+}
+GrandCanariaPlanes.txt
+{
+
+}
+462188.txt (numer lotu)
+{ 
+	462188			nr
+ 	Paris			fromCity
+	France			fromCountry
+	NewYork			toCity
+	USA				toCountry
+	p482193			PlaneSerialNr
+	950				distance
+	17.07.2020_21	startTime
+	18.07.2020_9	endTime
+	Person Bartosz Pieciul 82923120328
+	Person Bartosz Pieciul 82923120328
+	Firm Kleix 6482992
+}
 
