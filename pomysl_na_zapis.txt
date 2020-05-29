@@ -1,76 +1,69 @@
 Airports.txt
 {
-	Warsaw Poland BIG 50 BUSINESS
-	GrandCanaria Spain BIG 65 TOURIST
-	Bialystok Poland SMALL 5 BUSINESS
-	Kair Egypt BIG 70 TOURIST
-	Cracow Poland BIG 47 BUSINESS
-	NewYork USA BIG 137 BUSINESS
+	Spain GrandCanaria
+	Poland Warsaw
+	Poland Bialystok
+	Egypt Kair
+	Poland Cracow
+	USA NewYork
 }
 
 
-Warsaw.txt
+Spain_GranCanaria.txt
 {
-	SzybkiSzybowiec3000 90 3000(zasięg) LINIOWY
-	PrywatnyZygzak 30 1200 CHARTER
-
-
+	GranCanaria				city
+	Spain					country
+	BIG						sizeType
+	70						size
+	BUSINESS				directType
+	15.24					localizationX
+	28.05					localizationY
 }
-GrandCanaria.txt
+Spain_GranCanariaFlights.txt
 {
-	BuenoAvion57 132 2000 LINIOWY
+	462188 					(numer lotu)
+	213522
 }
-
-SzybkiSzybowiec3000.txt
+Spain_GranCanariaPlanes.txt
 {
-
+	p251497
 }
+462188.txt (numer lotu)
+{ 
+	462188					nr
+ 	Paris					fromCity
+	France					fromCountry
+	NewYork					toCity
+	USA						toCountry
+	p482193					PlaneSerialNr
+	950						distance
+	17.07.2020_21			startTime
+	18.07.2020_9			endTime
+	Person Bartosz Pieciul 82923120328
+	Person Bartosz Pieciul 82923120328
+	Firm Drutex 6482992
+}
+p251497.txt (numer samolotu)
+{
+	BuenoAvion57		name
+	132					size
+	2000				maxDistance
+	Scheduled			directType
+	p251497				serialNr
+	1					availibility (1-dostępny, 0-zajęty)
+	750					velocity
+}
+
+
 
 
 
 Time.txt
 {
-	18.05.2020_12
+	18 05 2020 12
 }
-
-
-
-
 RandomClients.txt
 {
-1	Person Janina Kowalska 26381020352
-2	Firm Kleix 6473892
-3	
+	Person Janina Kowalska 26381020352
+	Firm Kleix 6473892
 }
-
-
-
-
-
-
-
-Spain_GrandCanariaFlights.txt
-{
-	462188 			(numer lotu)
-	213522
-}
-GrandCanariaPlanes.txt
-{
-
-}
-462188.txt (numer lotu)
-{ 
-	462188			nr
- 	Paris			fromCity
-	France			fromCountry
-	NewYork			toCity
-	USA				toCountry
-	p482193			PlaneSerialNr
-	950				distance
-	17.07.2020_21	startTime
-	18.07.2020_9	endTime
-	Person Bartosz Pieciul 82923120328
-	Person Bartosz Pieciul 82923120328
-	Firm Kleix 6482992
-}
-
