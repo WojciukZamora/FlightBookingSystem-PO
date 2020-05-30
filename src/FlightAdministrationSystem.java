@@ -1,4 +1,3 @@
-import javax.xml.namespace.QName;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.LinkedList;
@@ -10,17 +9,17 @@ import java.util.Scanner;
  */
 public class FlightAdministrationSystem {
     Airport airport;
-    static LinkedList<Airport> airports = new LinkedList<>();
-    static ListIterator<Airport> it;
+    private LinkedList<Airport> airports = new LinkedList<>();
+    private ListIterator<Airport> it;
+    private String filePrefix;//protected??
+    private String country, city, sizeType;
+    private int airportSize;
+    private String directType;
+    private double localizationX, localizationY;
+    Scanner console = new Scanner(System.in);
 
     public void importAirports() throws FileNotFoundException {
         Scanner readAirports = new Scanner(new File("Files/Airports.txt"));
-        String filePrefix;
-        String country, city, sizeType;
-        int size;
-        String directType;
-        double localizationX, localizationY;
-
         while (readAirports.hasNextLine()) {
             country = readAirports.next();
             city = readAirports.next();
@@ -30,22 +29,38 @@ public class FlightAdministrationSystem {
                 country = readAirport.next();
                 city = readAirport.next();
                 sizeType = readAirport.next();
-                size = readAirport.nextInt();
+                airportSize = readAirport.nextInt();
                 directType = readAirport.next();
                 localizationX = readAirport.nextDouble();
                 localizationY = readAirport.nextDouble();
-                airport = new Airport(country, city, sizeType, size, directType, localizationX, localizationY);
+                airport = new Airport(country, city, sizeType, airportSize, directType, localizationX, localizationY);
                 airport.importPlanes();
                 airport.importFlights();
+                airports.add(airport);
             }
         }
     }
 
-    public void addAirport(Airport airport) {
+    public void addAirport() {
+        System.out.print("Country: ");
+        country = console.next();
+        System.out.print("City: ");
+        city = console.next();
+        System.out.print("sizeType: ");
+        sizeType = console.next();
+        System.out.print("airportSize: ");
+        airportSize = console.nextInt();
+        System.out.print("directType: ");
+        directType = console.next();
+        System.out.print("localizationX: ");
+        localizationX = console.nextDouble();
+        System.out.print("localizationY: ");
+        localizationY = console.nextDouble();
+        airport = new Airport(country, city, sizeType, airportSize, directType, localizationX, localizationY);
         airports.add(airport);
     }
 
-    public static LinkedList<Airport> getAirports() {
+    public LinkedList<Airport> getAirports() {
         return airports;
     }
 

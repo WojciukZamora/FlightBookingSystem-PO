@@ -26,7 +26,7 @@ Spain_GranCanariaFlights.txt
 }
 Spain_GranCanariaPlanes.txt
 {
-	p251497
+	51497
 }
 462188.txt (numer lotu)
 { 
@@ -43,7 +43,7 @@ Spain_GranCanariaPlanes.txt
 	Person Bartosz Pieciul 82923120328
 	Firm Drutex 6482992
 }
-p251497.txt (numer samolotu)
+51497.txt (numer samolotu)
 {
 	BuenoAvion57		name
 	132					size
