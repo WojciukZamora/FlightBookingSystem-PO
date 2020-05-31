@@ -16,7 +16,7 @@ public class FlightAdministrationSystem {
     private int airportSize;
     private String directType;
     private double localizationX, localizationY;
-    Scanner console = new Scanner(System.in);
+    private Scanner console = new Scanner(System.in);
 
     public void importAirports() throws FileNotFoundException {
         Scanner readAirports = new Scanner(new File("Files/Airports.txt"));
@@ -25,19 +25,17 @@ public class FlightAdministrationSystem {
             city = readAirports.next();
             filePrefix = country + '_' + city;
             Scanner readAirport = new Scanner(new File("Files/Airports/" + filePrefix + "/" + filePrefix + "Info.txt"));
-            while (readAirport.hasNextLine()) {
-                country = readAirport.next();
-                city = readAirport.next();
-                sizeType = readAirport.next();
-                airportSize = readAirport.nextInt();
-                directType = readAirport.next();
-                localizationX = readAirport.nextDouble();
-                localizationY = readAirport.nextDouble();
-                airport = new Airport(country, city, sizeType, airportSize, directType, localizationX, localizationY);
-                airport.importPlanes();
-                airport.importFlights();
-                airports.add(airport);
-            }
+            country = readAirport.next();
+            city = readAirport.next();
+            sizeType = readAirport.next();
+            airportSize = readAirport.nextInt();
+            directType = readAirport.next();
+            localizationX = readAirport.nextDouble();
+            localizationY = readAirport.nextDouble();
+            airport = new Airport(country, city, sizeType, airportSize, directType, localizationX, localizationY);
+            airport.importPlanes();
+            airport.importFlights();
+            airports.add(airport);
         }
     }
 
