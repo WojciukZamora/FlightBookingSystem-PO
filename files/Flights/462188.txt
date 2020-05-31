@@ -7,14 +7,6 @@ USA
 950
 17.07.2020_21
 18.07.2020_9
-Person 
-Bartosz 
-Pieciul 
-82923120328
-Person 
-Bartosz 
-Pieciul 
-82923120328
-Firm 
-Drutex 
-6482992
+Person Bartosz Pieciul 82923120328
+Person Bartosz Pieciul 82923120328
+Firm Drutex 6482992
