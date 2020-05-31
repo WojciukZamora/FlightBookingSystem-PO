@@ -114,15 +114,12 @@ public class Flight {
         writeFlight.println(endTime);
         for(Object x : clients){
             if(x instanceof Firm){
-                writeFlight.println("Firm");
-                writeFlight.println(((Firm)x).getCompanyName());
-                writeFlight.println(((Firm)x).getCompanyId());
+                writeFlight.println("Firm"+" "+((Firm)x).getCompanyName()+" "+((Firm)x).getCompanyId());
+
             }
             if(x instanceof Person){
-                writeFlight.println("Person");
-                writeFlight.println(((Person)x).getFirstname());
-                writeFlight.println(((Person)x).getSurname());
-                writeFlight.println(((Person)x).getIdNumber());
+                writeFlight.println("Person"+" "+((Person)x).getFirstname()+" "+((Person)x).getSurname()+" "+((Person)x).getIdNumber());
+
             }
             writeFlight.close();
         }
