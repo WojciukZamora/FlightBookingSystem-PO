@@ -3,12 +3,12 @@
  */
 public class Plane {
     private String name;
-    private Integer size;
-    private Integer maxDistance;
+    private int size;
+    private int maxDistance;
     private String directType;
-    private Integer serialNr;
+    private int serialNr;
     private Boolean availability;
-    private Integer velocity;
+    private int velocity;
     public Plane(String name, int size, int maxDistance, String directType, int serialNr, boolean availability, int velocity)
     {
         this.name=name;
@@ -23,16 +23,16 @@ public class Plane {
     public String getName(){
         return name;
     }
-    public Integer getMaxDistance(){
+    public int getMaxDistance(){
         return maxDistance;
     }
     public String getType(){
         return directType;
     }
-    public Integer getSize(){
+    public int getSize(){
         return size;
     }
-    public Integer getSerialNr(){
+    public int getSerialNr(){
         return serialNr;
     }
 
@@ -40,7 +40,7 @@ public class Plane {
         return availability;
     }
 
-    public Integer getVelocity() {
+    public int getVelocity() {
         return velocity;
     }
     public void setAvailability(Boolean availability){

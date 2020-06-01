@@ -12,7 +12,7 @@ import java.io.FileNotFoundException;
 public class Flight {
     Firm firm;
     Person person;
-    private Integer nr;
+    private int nr;
     private String fromCountry;
     private String fromCity;
     private String toCountry;
@@ -25,10 +25,10 @@ public class Flight {
     //client
     private String firstname;
     private String surname;
-    private Integer idNumber;
+    private int idNumber;
     private String companyName;
-    private Integer companyId
-    public Flight(int nr, String fromCity, String fromCountry, String toCity, String toCountry, Plane plane,Double xFrom,Double yFrom,Double xTo,Double yTo, OurDate startTime){
+    private int companyId;
+    public Flight(int nr, String fromCountry,String fromCity, String toCountry, String toCity, Plane plane,Double xFrom,Double yFrom,Double xTo,Double yTo, OurDate startTime){
         this.nr=nr;
         this.fromCity=fromCity;
         this.fromCountry=fromCountry;
@@ -44,7 +44,18 @@ public class Flight {
 
 
     }
-    public Integer getNr(){
+    public Flight(int nr, String fromCountry,String fromCity, String toCountry, String toCity, Plane plane,Double distance, OurDate startTime,OurDate endTime){
+        this.nr=nr;
+        this.fromCity=fromCity;
+        this.fromCountry=fromCountry;
+        this.toCity=toCity;
+        this.toCountry=toCountry;
+        this.plane=plane;
+        this.distance=distance;
+        this.startTime=startTime;
+        this.endTime=endTime;
+    }
+    public int getNr(){
         return nr;
     }
     public String getFromCity() {
@@ -69,16 +80,16 @@ public class Flight {
         clients.add(client);
     }
     public void removeClient(int seatNr){
-        clients.remove(seatNr-1)
+        clients.remove((seatNr-1));
     }
     public List<Client> getClients(){
         return clients;
     }
-    public Integer getFreeChairs(){
+    public int getFreeChairs(){
         return (plane.getSize()-clients.size());
     }
     public void importClients() throws FileNotFoundException{
-        Scanner readCilients = new Scanner(new File("Files/Flights/" +nr+".txt"));
+        Scanner readCilients = new Scanner(new File("Files/Flights/" +nr+"Clients.txt"));
         while(readCilients.hasNextLine()){
             if (readCilients.next()=="Person"){
                 firstname=readCilients.next();
@@ -91,27 +102,17 @@ public class Flight {
             if (readCilients.next()=="Firm"){
                 companyName=readCilients.next();
                 companyId=readCilients.nextInt();
-                firm=new Firm(firstname,surname);
+                firm=new Firm(companyName,companyId);
                 clients.add(firm);
 
             }
-            else{
-                readCilients.next();
+
             }
         }
 
     }
     public void exportClients() throws FileNotFoundException{
-        PrintWriter writeFlight= new PrintWriter(new File("Files/Flights/" +nr+".txt"));
-        writeFlight.println(nr);
-        writeFlight.println(fromCity);
-        writeFlight.println(fromCountry);
-        writeFlight.println(toCity);
-        writeFlight.println(toCountry);
-        writeFlight.println(plane.getSerialNr());
-        writeFlight.println(distance);
-        writeFlight.println(startTime);
-        writeFlight.println(endTime);
+        PrintWriter writeFlight= new PrintWriter(new File("Files/Flights/" +nr+"Clients.txt"));
         for(Object x : clients){
             if(x instanceof Firm){
                 writeFlight.println("Firm"+" "+((Firm)x).getCompanyName()+" "+((Firm)x).getCompanyId());
