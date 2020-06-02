@@ -60,8 +60,11 @@ public class FlightAdministrationSystem {
 
     public void exportAirports() throws FileNotFoundException {
         PrintWriter writeAirports = new PrintWriter(new File("Files/Airports.txt"));
+        int i=0;
         for (Airport airport : airports) {
-            writeAirports.println(airport.getCountry() + " " + this.airport.getCity());
+            i++;
+            if(i!=1)writeAirports.println();
+            writeAirports.print(airport.getCountry() + " " + this.airport.getCity());
             airportName = airport.getCountry() + '_' + airport.getCity();
             PrintWriter writeAirport = new PrintWriter(new File("Files/Airports/" + airportName + "/" + airportName + "Info.txt"));
             writeAirport.println(airport.getCountry());

@@ -101,7 +101,7 @@ public class Flight {
     }
     public void importClients() throws FileNotFoundException{
         Scanner readClients = new Scanner(new File("Files/Flights/" +nr+"/"+nr+"Clients.txt"));
-        while(readClients.hasNextLine() && !readClients.equals(null)){
+        while(readClients.hasNextLine()){
             String clientType = readClients.next();
             if (clientType.equals("Person")){
                 firstname=readClients.next();
@@ -125,16 +125,20 @@ public class Flight {
 
     public void exportClients() throws FileNotFoundException{
         PrintWriter writeFlight= new PrintWriter(new File("Files/Flights/" +nr+"/"+nr+"Clients.txt"));
+        int i=0;
         for(Object x : clients){
+            i++;
+            if(i==1)writeFlight.println();
+
             if(x instanceof Firm){
-                System.out.println("Firm"+" "+((Firm)x).getCompanyName()+"as "+((Firm)x).getCompanyId());
-                writeFlight.println("Firm"+" "+((Firm)x).getCompanyName()+"as "+((Firm)x).getCompanyId());
+                System.out.print("Firm"+" "+((Firm)x).getCompanyName()+"as "+((Firm)x).getCompanyId());
+                writeFlight.print("Firm"+" "+((Firm)x).getCompanyName()+"as "+((Firm)x).getCompanyId());
 
             }
             if(x instanceof Person){
 
-                System.out.println("Person"+" "+((Person)x).getFirstname()+"ds "+((Person)x).getSurname()+" "+((Person)x).getIdNumber());
-                writeFlight.println("Person"+" "+((Person)x).getFirstname()+"ds "+((Person)x).getSurname()+" "+((Person)x).getIdNumber());
+                System.out.print("Person"+" "+((Person)x).getFirstname()+"ds "+((Person)x).getSurname()+" "+((Person)x).getIdNumber());
+                writeFlight.print("Person"+" "+((Person)x).getFirstname()+"ds "+((Person)x).getSurname()+" "+((Person)x).getIdNumber());
 
             }
         }
