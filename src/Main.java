@@ -2,12 +2,15 @@
  * @author Andrzej Zamora
  * @author Paweł Wojciuk
  */
+import java.io.FileNotFoundException;
 import java.util.Date;
 
 public class Main {
-    private static Object Date;
+    public static void main(String[] args) throws FileNotFoundException {
+        FlightAdministrationSystem admin = new FlightAdministrationSystem();
+        admin.importAirports();
 
-    public static void main(String[] args) {
-        System.out.println(Date);
+
+        admin.exportAirports();
     }
 }

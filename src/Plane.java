@@ -9,7 +9,7 @@ public class Plane {
     private int serialNr;
     private Boolean availability;
     private int velocity;
-    public Plane(String name, int planeSize, int maxDistance, String destiny, int serialNr, boolean availability, int velocity)
+    /*public Plane(String name, int planeSize, int maxDistance, String destiny, int serialNr, boolean availability, int velocity)
     {
         this.name=name;
         this.planeSize=planeSize;
@@ -19,7 +19,7 @@ public class Plane {
         this.availability=availability;
         this.velocity=velocity;
 
-    }
+    }*/
     public String getName(){
         return name;
     }

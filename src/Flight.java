@@ -21,13 +21,24 @@ public class Flight {
     private Double distance;
     private OurDate startTime;
     private OurDate endTime;
-    private  LinkedList<Client> clients = new LinkedList<>();
+    private LinkedList<Client> clients = new LinkedList<>();
     //client
     private String firstname;
     private String surname;
-    private int idNumber;
+    private long idNumber;
     private String companyName;
     private int companyId;
+    public Flight() {
+        this.nr = 0;
+        this.fromCountry = "";
+        this.fromCity = "";
+        this.toCountry = "";
+        this.toCity = "";
+        this.plane = null;
+        this.distance = 0.0;
+        this.startTime = null;
+        this.endTime = null;
+    }
     public Flight(int nr, String fromCountry,String fromCity, String toCountry, String toCity, Plane plane,Double xFrom,Double yFrom,Double xTo,Double yTo, OurDate startTime){
         this.nr=nr;
         this.fromCity=fromCity;
@@ -89,19 +100,20 @@ public class Flight {
         return (plane.getSize()-clients.size());
     }
     public void importClients() throws FileNotFoundException{
-        Scanner readCilients = new Scanner(new File("Files/Flights/" +nr+"Clients.txt"));
-        while(readCilients.hasNextLine()){
-            if (readCilients.next()=="Person"){
-                firstname=readCilients.next();
-                surname=readCilients.next();
-                idNumber=readCilients.nextInt();
+        Scanner readClients = new Scanner(new File("Files/Flights/" +nr+"/"+nr+"Clients.txt"));
+        while(readClients.hasNextLine()){
+            String clientType = readClients.next();
+            if (clientType.equals("Person")){
+                firstname=readClients.next();
+                surname=readClients.next();
+                idNumber=readClients.nextLong();
                 person= new Person(firstname,surname,idNumber);
                 clients.add(person);
 
             }
-            if (readCilients.next()=="Firm"){
-                companyName=readCilients.next();
-                companyId=readCilients.nextInt();
+            if (clientType.equals("Firm")){
+                companyName=readClients.next();
+                companyId=readClients.nextInt();
                 firm=new Firm(companyName,companyId);
                 clients.add(firm);
 
@@ -112,18 +124,21 @@ public class Flight {
 
 
     public void exportClients() throws FileNotFoundException{
-        PrintWriter writeFlight= new PrintWriter(new File("Files/Flights/" +nr+"Clients.txt"));
+        PrintWriter writeFlight= new PrintWriter(new File("Files/Flights/" +nr+"/"+nr+"Clients.txt"));
         for(Object x : clients){
             if(x instanceof Firm){
-                writeFlight.println("Firm"+" "+((Firm)x).getCompanyName()+" "+((Firm)x).getCompanyId());
+                System.out.println("Firm"+" "+((Firm)x).getCompanyName()+"as "+((Firm)x).getCompanyId());
+                writeFlight.println("Firm"+" "+((Firm)x).getCompanyName()+"as "+((Firm)x).getCompanyId());
 
             }
             if(x instanceof Person){
-                writeFlight.println("Person"+" "+((Person)x).getFirstname()+" "+((Person)x).getSurname()+" "+((Person)x).getIdNumber());
+
+                System.out.println("Person"+" "+((Person)x).getFirstname()+"ds "+((Person)x).getSurname()+" "+((Person)x).getIdNumber());
+                writeFlight.println("Person"+" "+((Person)x).getFirstname()+"ds "+((Person)x).getSurname()+" "+((Person)x).getIdNumber());
 
             }
-            writeFlight.close();
         }
+        writeFlight.close();
 
 
 

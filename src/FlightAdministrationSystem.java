@@ -6,10 +6,11 @@ import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.util.LinkedList;
 import java.util.ListIterator;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class FlightAdministrationSystem {
-    Airport airport;
+    Airport airport;// = new Airport();
     private LinkedList<Airport> airports = new LinkedList<>();
     private ListIterator<Airport> it;
     private String airportName;
@@ -18,10 +19,12 @@ public class FlightAdministrationSystem {
     public void importAirports() throws FileNotFoundException {
         Scanner readAirports = new Scanner(new File("Files/Airports.txt"));
         while (readAirports.hasNextLine()) {
+            airport = new Airport();
             airport.setCountry(readAirports.next());
             airport.setCity(readAirports.next());
             airportName = airport.getCountry() + '_' + airport.getCity();
             Scanner readAirport = new Scanner(new File("Files/Airports/" + airportName + "/" + airportName + "Info.txt"));
+            readAirport.useLocale(Locale.US);
             airport.setCountry(readAirport.next());
             airport.setCity(readAirport.next());
             airport.setSizeType(readAirport.next());
@@ -70,7 +73,9 @@ public class FlightAdministrationSystem {
             writeAirport.println(airport.getLocalizationY());
             airport.exportPlanes();
             airport.exportFlights();
+            writeAirport.close();
         }
+        writeAirports.close();
     }
 
 

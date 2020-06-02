@@ -17,39 +17,30 @@ public class Airport {
     private String directType;
     private double localizationX;
     private double localizationY;
-
-    private int day,month,year,hour;
+    private LinkedList<Plane>planes = new LinkedList<>();
+    private LinkedList<Flight>flights = new LinkedList<>();
 
 
     private Plane plane;
-    private LinkedList<Plane>planes = new LinkedList<>();
     private ListIterator<Plane> itPlanes;
     private Flight flight;
-    private LinkedList<Flight>flights = new LinkedList<>();
     private ListIterator<Flight> itFlights;
+    private int day,month,year,hour;
     private String airportName;
     private Scanner console = new Scanner(System.in);
 
-    public Airport(String country, String city, String sizeType, int airportSize, String directType, double localizationX, double localizationY) {
-        this.country = country;
-        this.city = city;
-        this.sizeType = sizeType;
-        this.airportSize = airportSize;
-        this.directType = directType;
-        this.localizationX = localizationX;
-        this.localizationY = localizationY;
-        airportName = country + '_' + city;
-    }
     public void importPlanes() throws FileNotFoundException {
+        airportName = country + '_' + city;
         Scanner readPlanes = new Scanner(new File("Files/Airports/" + airportName + "/" + airportName + "Planes.txt"));
-        while(readPlanes.hasNextLine()) {
-            //plane = new Plane();
-            plane.setSerialNr(readPlanes.nextInt());
-            planes.add(importPlane(plane.getSerialNr()));
+        while(readPlanes.hasNextLine() && readPlanes.nextLine()!=null) {
+            plane = new Plane();
+            importPlane(readPlanes.nextInt());
+            planes.add(plane);
         }
     }
-    private Plane importPlane(int serialNr_param) throws FileNotFoundException {
+    private void importPlane(int serialNr_param) throws FileNotFoundException {
         Scanner readPlane = new Scanner(new File("Files/Planes/" + serialNr_param + ".txt"));
+        plane = new Plane();
         plane.setName(readPlane.next());
         plane.setPlaneSize(readPlane.nextInt());
         plane.setMaxDistance(readPlane.nextInt());
@@ -57,11 +48,12 @@ public class Airport {
         plane.setSerialNr(readPlane.nextInt());
         plane.setAvailability(readPlane.nextBoolean());
         plane.setVelocity(readPlane.nextInt());
-        return plane;
     }
     public void importFlights() throws FileNotFoundException {
+        airportName = country + '_' + city;
         Scanner readFlights = new Scanner(new File("Files/Airports/" + airportName + "/" + airportName + "Flights.txt"));
-        while(readFlights.hasNextLine()) {
+        while(readFlights.hasNextLine() && readFlights.nextLine()!=null) {
+            flight = new Flight();
             flight.setNr(readFlights.nextInt());
             Scanner readFlightInfo = new Scanner(new File("Files/Flights/" + flight.getNr() + "/" + flight.getNr() + "Info.txt"));
             flight.setNr(readFlightInfo.nextInt());
@@ -70,7 +62,8 @@ public class Airport {
             flight.setToCountry(readFlightInfo.next());
             flight.setToCity(readFlightInfo.next());
             int serialNr = readFlightInfo.nextInt();
-            flight.setPlane(importPlane(serialNr));
+            importPlane(serialNr);
+            flight.setPlane(plane);
             flight.setDistance(readFlightInfo.nextDouble());
             day = readFlightInfo.nextInt();
             month = readFlightInfo.nextInt();
@@ -119,20 +112,25 @@ public class Airport {
     }
 
     public void exportPlanes() throws FileNotFoundException {
+        airportName = country + '_' + city;
         PrintWriter writePlanes = new PrintWriter(new File("Files/Airports/" + airportName + "/" + airportName + "Planes.txt"));
         itPlanes = planes.listIterator();
         while(itPlanes.hasNext()) {
             Plane plane = itPlanes.next();
             writePlanes.println(plane.getSerialNr());
         }
+        writePlanes.close();
     }
     public void exportFlights() throws FileNotFoundException {
+        airportName = country + '_' + city;
         PrintWriter writeFlights = new PrintWriter(new File("Files/Airports/" + airportName + "/" + airportName + "Flights.txt"));
         itFlights = flights.listIterator();
         while(itFlights.hasNext()) {
             Flight flight = itFlights.next();
             writeFlights.println(flight.getNr());
+            flight.exportClients();
         }
+        writeFlights.close();
     }
 
 
