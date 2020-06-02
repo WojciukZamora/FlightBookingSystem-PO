@@ -32,7 +32,7 @@ public class Airport {
     public void importPlanes() throws FileNotFoundException {
         airportName = country + '_' + city;
         Scanner readPlanes = new Scanner(new File("Files/Airports/" + airportName + "/" + airportName + "Planes.txt"));
-        while(readPlanes.hasNextLine() && readPlanes.nextLine()!=null) {
+        while(readPlanes.hasNextLine() && !readPlanes.equals(null)) {
             plane = new Plane();
             importPlane(readPlanes.nextInt());
             planes.add(plane);
@@ -52,7 +52,7 @@ public class Airport {
     public void importFlights() throws FileNotFoundException {
         airportName = country + '_' + city;
         Scanner readFlights = new Scanner(new File("Files/Airports/" + airportName + "/" + airportName + "Flights.txt"));
-        while(readFlights.hasNextLine() && readFlights.nextLine()!=null) {
+        while(readFlights.hasNextLine() && !readFlights.equals(null)) {
             flight = new Flight();
             flight.setNr(readFlights.nextInt());
             Scanner readFlightInfo = new Scanner(new File("Files/Flights/" + flight.getNr() + "/" + flight.getNr() + "Info.txt"));

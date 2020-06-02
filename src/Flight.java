@@ -101,7 +101,7 @@ public class Flight {
     }
     public void importClients() throws FileNotFoundException{
         Scanner readClients = new Scanner(new File("Files/Flights/" +nr+"/"+nr+"Clients.txt"));
-        while(readClients.hasNextLine()){
+        while(readClients.hasNextLine() && !readClients.equals(null)){
             String clientType = readClients.next();
             if (clientType.equals("Person")){
                 firstname=readClients.next();
