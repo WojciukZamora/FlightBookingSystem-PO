@@ -162,13 +162,9 @@ public class Airport {
     }
 
 
-
-
-
     public String getCountry() {
         return country;
     }
-
     public void setCountry(String country) {
         this.country = country;
     }
@@ -176,7 +172,6 @@ public class Airport {
     public String getCity() {
         return city;
     }
-
     public void setCity(String city) {
         this.city = city;
     }
@@ -184,7 +179,6 @@ public class Airport {
     public String getSizeType() {
         return sizeType;
     }
-
     public void setSizeType(String sizeType) {
         this.sizeType = sizeType;
     }
@@ -192,7 +186,6 @@ public class Airport {
     public int getAirportSize() {
         return airportSize;
     }
-
     public void setAirportSize(int airportSize) {
         this.airportSize = airportSize;
     }
@@ -200,7 +193,6 @@ public class Airport {
     public String getDirectType() {
         return directType;
     }
-
     public void setDirectType(String directType) {
         this.directType = directType;
     }
@@ -208,7 +200,6 @@ public class Airport {
     public double getLocalizationX() {
         return localizationX;
     }
-
     public void setLocalizationX(double localizationX) {
         this.localizationX = localizationX;
     }
@@ -216,7 +207,6 @@ public class Airport {
     public double getLocalizationY() {
         return localizationY;
     }
-
     public void setLocalizationY(double localizationY) {
         this.localizationY = localizationY;
     }
