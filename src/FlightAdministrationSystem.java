@@ -64,7 +64,7 @@ public class FlightAdministrationSystem {
         for (Airport airport : airports) {
             i++;
             if(i!=1)writeAirports.println();
-            writeAirports.print(airport.getCountry() + " " + this.airport.getCity());
+            writeAirports.print(airport.getCountry() + " " + airport.getCity());
             airportName = airport.getCountry() + '_' + airport.getCity();
             PrintWriter writeAirport = new PrintWriter(new File("Files/Airports/" + airportName + "/" + airportName + "Info.txt"));
             writeAirport.println(airport.getCountry());
