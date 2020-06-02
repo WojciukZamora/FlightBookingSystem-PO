@@ -141,7 +141,7 @@ public class Airport {
             if(++i!=1)writeFlights.println();
             Flight flight = itFlights.next();
             writeFlights.print(flight.getNr());
-            PrintWriter writeFlight = new PrintWriter(new File("Files/Flights/" + flight.getNr() + "/" + flight.getNr() + ".txt"));
+            PrintWriter writeFlight = new PrintWriter(new File("Files/Flights/" + flight.getNr() + "/" + flight.getNr() + "Info.txt"));
             writeFlight.println(flight.getNr());
             writeFlight.println(flight.getFromCountry());
             writeFlight.println(flight.getFromCity());
@@ -149,15 +149,16 @@ public class Airport {
             writeFlight.println(flight.getToCity());
             writeFlight.println(flight.getPlane().getSerialNr());
             writeFlight.println(flight.getDistance());
-            writeFlight.println(flight.getStartTime().getDay());
-            writeFlight.println(flight.getStartTime().getMonth());
-            writeFlight.println(flight.getStartTime().getYear());
+            writeFlight.print(flight.getStartTime().getDay()+" ");
+            writeFlight.print(flight.getStartTime().getMonth()+" ");
+            writeFlight.print(flight.getStartTime().getYear()+" ");
             writeFlight.println(flight.getStartTime().getHour());
-            writeFlight.println(flight.getEndTime().getDay());
-            writeFlight.println(flight.getEndTime().getMonth());
-            writeFlight.println(flight.getEndTime().getYear());
+            writeFlight.print(flight.getEndTime().getDay()+" ");
+            writeFlight.print(flight.getEndTime().getMonth()+" ");
+            writeFlight.print(flight.getEndTime().getYear()+" ");
             writeFlight.println(flight.getEndTime().getHour());
             flight.exportClients();
+            writeFlight.close();
         }
         writeFlights.close();
     }
