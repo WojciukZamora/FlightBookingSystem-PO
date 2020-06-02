@@ -2,17 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4f22b9f4-ba0c-4834-ae9f-916428f66e07" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/files/Flights/462188/462188Clients.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/files/Flights/462188/462188Info.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/files/airports.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Airport.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/files/Flights/462188.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/podzial_negatyw.PNG" beforeDir="false" afterPath="$PROJECT_DIR$/podzial_negatyw.PNG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Airport.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Airport.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Firm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Firm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pomysl_na_zapis.txt" beforeDir="false" afterPath="$PROJECT_DIR$/pomysl_na_zapis.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/FlightAdministrationSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FlightAdministrationSystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/OurDate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/OurDate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Person.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,27 +33,9 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
-    <property name="Downloaded.Files.Path.Enabled" value="false" />
-    <property name="Repository.Attach.Annotations" value="false" />
-    <property name="Repository.Attach.JavaDocs" value="false" />
-    <property name="Repository.Attach.Sources" value="false" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="settings.editor.selected.configurable" value="inlay.hints.JAVA" />
-  </component>
-  <component name="RunManager">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Main" />
-      <module name="PROJEKT" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.Main" />
-      </list>
-    </recent_temporary>
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -76,57 +52,20 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <option name="SHOW_UNVERSIONED_FILES_WHILE_COMMIT" value="false" />
   </component>
   <component name="WindowStateProjectService">
     <state x="275" y="22" key="#Inspections" timestamp="1590616790486">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="275" y="22" key="#Inspections/0.0.1366.728@0.0.1366.728" timestamp="1590616790486" />
-    <state x="275" y="0" width="816" height="728" key="#Intentions" timestamp="1590790500479">
+    <state x="264" y="0" key="CommitChangelistDialog2" timestamp="1590617148797">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="0" width="816" height="728" key="#Intentions/0.0.1366.728@0.0.1366.728" timestamp="1590790500479" />
-    <state x="488" y="80" key="#com.intellij.ide.util.MemberChooser" timestamp="1591007650141">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="488" y="80" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1591007650141" />
-    <state x="92" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1590801913425">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="92" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.728@0.0.1366.728" timestamp="1590801913425" />
-    <state x="264" y="0" key="CommitChangelistDialog2" timestamp="1591002565405">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="264" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1591002565405" />
-    <state x="184" y="9" key="SettingsEditor" timestamp="1590713851142">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="184" y="9" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1590713851142" />
+    <state x="264" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1590617148797" />
     <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1590617137483">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1590617137483" />
-    <state x="92" y="92" width="1182" height="544" key="com.intellij.history.integration.ui.views.RecentChangeDialog" timestamp="1590789734035">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="92" y="92" width="1182" height="544" key="com.intellij.history.integration.ui.views.RecentChangeDialog/0.0.1366.728@0.0.1366.728" timestamp="1590789734035" />
-    <state x="387" y="256" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1591057748797">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="387" y="256" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1366.728@0.0.1366.728" timestamp="1591057748797" />
-    <state x="492" y="278" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1591064756161">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="492" y="278" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728@0.0.1366.728" timestamp="1591064756161" />
-    <state x="65" y="0" key="new project wizard" timestamp="1591002633128">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="65" y="0" key="new project wizard/0.0.1366.728@0.0.1366.728" timestamp="1591002633128" />
-    <state x="435" y="61" key="refactoring.ChangeSignatureDialog" timestamp="1590802108427">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="435" y="61" key="refactoring.ChangeSignatureDialog/0.0.1366.728@0.0.1366.728" timestamp="1590802108427" />
     <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1590616859054">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

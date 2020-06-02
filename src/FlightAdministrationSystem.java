@@ -1,6 +1,5 @@
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.PrintWriter;
 import java.util.LinkedList;
 import java.util.ListIterator;
 import java.util.Scanner;
@@ -12,44 +11,50 @@ public class FlightAdministrationSystem {
     Airport airport;
     private LinkedList<Airport> airports = new LinkedList<>();
     private ListIterator<Airport> it;
-    private String airportName;
+    private String filePrefix;//protected??
+    private String country, city, sizeType;
+    private int airportSize;
+    private String directType;
+    private double localizationX, localizationY;
     private Scanner console = new Scanner(System.in);
 
     public void importAirports() throws FileNotFoundException {
         Scanner readAirports = new Scanner(new File("Files/Airports.txt"));
         while (readAirports.hasNextLine()) {
-            airport.setCountry(readAirports.next());
-            airport.setCity(readAirports.next());
-            airportName = airport.getCountry() + '_' + airport.getCity();
-            Scanner readAirport = new Scanner(new File("Files/Airports/" + airportName + "/" + airportName + "Info.txt"));
-            airport.setCountry(readAirport.next());
-            airport.setCity(readAirport.next());
-            airport.setSizeType(readAirport.next());
-            airport.setAirportSize(readAirport.nextInt());
-            airport.setDirectType(readAirport.next());
-            airport.setLocalizationX(readAirport.nextDouble());
-            airport.setLocalizationY(readAirport.nextDouble());
+            country = readAirports.next();
+            city = readAirports.next();
+            filePrefix = country + '_' + city;
+            Scanner readAirport = new Scanner(new File("Files/Airports/" + filePrefix + "/" + filePrefix + "Info.txt"));
+            country = readAirport.next();
+            city = readAirport.next();
+            sizeType = readAirport.next();
+            airportSize = readAirport.nextInt();
+            directType = readAirport.next();
+            localizationX = readAirport.nextDouble();
+            localizationY = readAirport.nextDouble();
+            airport = new Airport(country, city, sizeType, airportSize, directType, localizationX, localizationY);
             airport.importPlanes();
             airport.importFlights();
             airports.add(airport);
         }
     }
 
-    public void addAirport(Airport airport) {
-        /*System.out.print("Country: ");
-        airport.setCountry(console.next());
+    public void addAirport() {
+        System.out.print("Country: ");
+        country = console.next();
         System.out.print("City: ");
-        airport.setCity(console.next());
+        city = console.next();
         System.out.print("sizeType: ");
-        airport.setSizeType(console.next());
+        sizeType = console.next();
         System.out.print("airportSize: ");
-        airport.setAirportSize(console.nextInt());
+        airportSize = console.nextInt();
         System.out.print("directType: ");
-        airport.setDirectType(console.next());
+        directType = console.next();
         System.out.print("localizationX: ");
-        airport.setLocalizationX(console.nextDouble());
+        localizationX = console.nextDouble();
         System.out.print("localizationY: ");
-        airport.setLocalizationY(console.nextDouble());*/
+        localizationY = console.nextDouble();
+        airport = new Airport(country, city, sizeType, airportSize, directType, localizationX, localizationY);
         airports.add(airport);
     }
 
@@ -63,28 +68,14 @@ public class FlightAdministrationSystem {
             Airport airport = it.next();
             if (airport.getCountry().equals(country) && airport.getCity().equals(city)) {
                 it.remove();
-                System.out.println("Airport deleted");
+                System.out.println("Pomyślnie usunięto lotnisko z bazy");
                 return;
             }
         }
     }
 
-    public void exportAirports() throws FileNotFoundException {
-        PrintWriter writeAirports = new PrintWriter(new File("Files/Airports.txt"));
-        for (airport : airports) {
-            writeAirports.println(airport.getCountry() + " " + this.airport.getCity());
-            airportName = airport.getCountry() + '_' + airport.getCity();
-            PrintWriter writeAirport = new PrintWriter(new File("Files/Airports/" + airportName + "/" + airportName + "Info.txt"));
-            writeAirport.println(airport.getCountry());
-            writeAirport.println(airport.getCity());
-            writeAirport.println(airport.getSizeType());
-            writeAirport.println(airport.getAirportSize());
-            writeAirport.println(airport.getDirectType());
-            writeAirport.println(airport.getLocalizationX());
-            writeAirport.println(airport.getLocalizationY());
-            airport.exportPlanes();
-            airport.exportFlights();
-        }
+    public void exportAirports() {
+        //TODO!!
     }
 
 
