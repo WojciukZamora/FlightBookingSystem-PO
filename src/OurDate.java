@@ -1,3 +1,6 @@
 public class OurDate {
-    private int day;
+    protected int day;
+    protected int month;
+    protected int year;
+    protected int hour;
 }
