@@ -1,3 +1,6 @@
+/**
+ * @author Paweł Wojciuk
+ */
 import java.util.Scanner;
 
 public class User {
