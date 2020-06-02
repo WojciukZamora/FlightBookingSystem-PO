@@ -128,7 +128,7 @@ public class Flight {
         int i=0;
         for(Object x : clients){
             i++;
-            if(i==1)writeFlight.println();
+            if(i!=1)writeFlight.println();
 
             if(x instanceof Firm){
                 System.out.print("Firm"+" "+((Firm)x).getCompanyName()+"as "+((Firm)x).getCompanyId());

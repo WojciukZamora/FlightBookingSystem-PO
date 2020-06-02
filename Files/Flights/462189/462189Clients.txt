@@ -1,0 +1,3 @@
+Person Mariusz Kasztan 82923120320
+Person Bartosz Pieciul 82923120328
+Firm Murex 6482990
