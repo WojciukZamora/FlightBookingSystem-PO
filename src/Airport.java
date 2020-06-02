@@ -120,6 +120,14 @@ public class Airport {
             if(++i!=1)writePlanes.println();
             Plane plane = itPlanes.next();
             writePlanes.print(plane.getSerialNr());
+            PrintWriter writePlane = new PrintWriter(new File("Files/Planes/" + plane.getSerialNr() + ".txt"));
+            writePlane.println(plane.getName());
+            writePlane.println(plane.getPlaneSize());
+            writePlane.println(plane.getMaxDistance());
+            writePlane.println(plane.getDestiny());
+            writePlane.println(plane.getSerialNr());
+            writePlane.println(plane.getAvailability());
+            writePlane.println(plane.getVelocity());
         }
         writePlanes.close();
     }
@@ -132,6 +140,22 @@ public class Airport {
             if(++i!=1)writeFlights.println();
             Flight flight = itFlights.next();
             writeFlights.print(flight.getNr());
+            PrintWriter writeFlight = new PrintWriter(new File("Files/Flights/" + flight.getNr() + "/" + flight.getNr() + ".txt"));
+            writeFlight.println(flight.getNr());
+            writeFlight.println(flight.getFromCountry());
+            writeFlight.println(flight.getFromCity());
+            writeFlight.println(flight.getToCountry());
+            writeFlight.println(flight.getToCity());
+            writeFlight.println(flight.getPlane().getSerialNr());
+            writeFlight.println(flight.getDistance());
+            writeFlight.println(flight.getStartTime().getDay());
+            writeFlight.println(flight.getStartTime().getMonth());
+            writeFlight.println(flight.getStartTime().getYear());
+            writeFlight.println(flight.getStartTime().getHour());
+            writeFlight.println(flight.getEndTime().getDay());
+            writeFlight.println(flight.getEndTime().getMonth());
+            writeFlight.println(flight.getEndTime().getYear());
+            writeFlight.println(flight.getEndTime().getHour());
             flight.exportClients();
         }
         writeFlights.close();
