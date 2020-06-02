@@ -102,7 +102,7 @@ public class Flight {
     public List<Client> getClients(){
         return clients;
     }
-
+    public int getClientsListSize(){ return  clients.size();}
     public int getFreeChairs(){
         return (plane.getSize()-clients.size());
     }
