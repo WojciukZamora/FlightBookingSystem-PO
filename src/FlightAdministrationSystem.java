@@ -36,20 +36,6 @@ public class FlightAdministrationSystem {
     }
 
     public void addAirport(Airport airport) {
-        /*System.out.print("Country: ");
-        airport.setCountry(console.next());
-        System.out.print("City: ");
-        airport.setCity(console.next());
-        System.out.print("sizeType: ");
-        airport.setSizeType(console.next());
-        System.out.print("airportSize: ");
-        airport.setAirportSize(console.nextInt());
-        System.out.print("directType: ");
-        airport.setDirectType(console.next());
-        System.out.print("localizationX: ");
-        airport.setLocalizationX(console.nextDouble());
-        System.out.print("localizationY: ");
-        airport.setLocalizationY(console.nextDouble());*/
         airports.add(airport);
     }
 
