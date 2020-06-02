@@ -32,7 +32,7 @@ public class Airport {
     public void importPlanes() throws FileNotFoundException {
         airportName = country + '_' + city;
         Scanner readPlanes = new Scanner(new File("Files/Airports/" + airportName + "/" + airportName + "Planes.txt"));
-        while(readPlanes.hasNextLine() && !readPlanes.equals(null)) {
+        while(readPlanes.hasNextLine()) {
             plane = new Plane();
             importPlane(readPlanes.nextInt());
             planes.add(plane);
@@ -52,7 +52,7 @@ public class Airport {
     public void importFlights() throws FileNotFoundException {
         airportName = country + '_' + city;
         Scanner readFlights = new Scanner(new File("Files/Airports/" + airportName + "/" + airportName + "Flights.txt"));
-        while(readFlights.hasNextLine() && !readFlights.equals(null)) {
+        while(readFlights.hasNextLine()) {
             flight = new Flight();
             flight.setNr(readFlights.nextInt());
             Scanner readFlightInfo = new Scanner(new File("Files/Flights/" + flight.getNr() + "/" + flight.getNr() + "Info.txt"));
@@ -115,9 +115,11 @@ public class Airport {
         airportName = country + '_' + city;
         PrintWriter writePlanes = new PrintWriter(new File("Files/Airports/" + airportName + "/" + airportName + "Planes.txt"));
         itPlanes = planes.listIterator();
+        int i=0;
         while(itPlanes.hasNext()) {
+            if(++i!=1)writePlanes.println();
             Plane plane = itPlanes.next();
-            writePlanes.println(plane.getSerialNr());
+            writePlanes.print(plane.getSerialNr());
         }
         writePlanes.close();
     }
@@ -125,9 +127,11 @@ public class Airport {
         airportName = country + '_' + city;
         PrintWriter writeFlights = new PrintWriter(new File("Files/Airports/" + airportName + "/" + airportName + "Flights.txt"));
         itFlights = flights.listIterator();
+        int i=0;
         while(itFlights.hasNext()) {
+            if(++i!=1)writeFlights.println();
             Flight flight = itFlights.next();
-            writeFlights.println(flight.getNr());
+            writeFlights.print(flight.getNr());
             flight.exportClients();
         }
         writeFlights.close();
