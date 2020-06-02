@@ -56,6 +56,7 @@ public class Airport {
             flight = new Flight();
             flight.setNr(readFlights.nextInt());
             Scanner readFlightInfo = new Scanner(new File("Files/Flights/" + flight.getNr() + "/" + flight.getNr() + "Info.txt"));
+            readFlightInfo.useLocale(Locale.US);
             flight.setNr(readFlightInfo.nextInt());
             flight.setFromCountry(readFlightInfo.next());
             flight.setFromCity(readFlightInfo.next());
@@ -116,9 +117,10 @@ public class Airport {
         PrintWriter writePlanes = new PrintWriter(new File("Files/Airports/" + airportName + "/" + airportName + "Planes.txt"));
         itPlanes = planes.listIterator();
         int i=0;
-        while(itPlanes.hasNext()) {
+        //while(itPlanes.hasNext()) {
+        for(Plane plane: planes) {
             if(++i!=1)writePlanes.println();
-            Plane plane = itPlanes.next();
+            //Plane plane = itPlanes.next();
             writePlanes.print(plane.getSerialNr());
             PrintWriter writePlane = new PrintWriter(new File("Files/Planes/" + plane.getSerialNr() + ".txt"));
             writePlane.println(plane.getName());
@@ -137,9 +139,8 @@ public class Airport {
         PrintWriter writeFlights = new PrintWriter(new File("Files/Airports/" + airportName + "/" + airportName + "Flights.txt"));
         itFlights = flights.listIterator();
         int i=0;
-        while(itFlights.hasNext()) {
+        for(Flight flight : flights) {
             if(++i!=1)writeFlights.println();
-            Flight flight = itFlights.next();
             writeFlights.print(flight.getNr());
             PrintWriter writeFlight = new PrintWriter(new File("Files/Flights/" + flight.getNr() + "/" + flight.getNr() + "Info.txt"));
             writeFlight.println(flight.getNr());
