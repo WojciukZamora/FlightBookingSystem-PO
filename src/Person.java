@@ -1,3 +1,6 @@
+/**
+ * @author Andrzej Zamora
+ */
 public class Person extends Client {
     private String firstname;
     private String surname;

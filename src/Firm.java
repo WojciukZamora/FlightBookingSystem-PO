@@ -1,3 +1,6 @@
+/**
+ * @author Andrzej Zamora
+ */
 public class Firm extends Client {
     private String companyName;
     private int companyId;

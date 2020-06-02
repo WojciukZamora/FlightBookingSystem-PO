@@ -1,3 +1,7 @@
+/**
+ * @author Andrzej Zamora
+ * @author Paweł Wojciuk
+ */
 import java.util.Date;
 
 public class Main {

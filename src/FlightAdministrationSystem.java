@@ -1,3 +1,6 @@
+/**
+ * @author Andrzej Zamora
+ */
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
@@ -5,9 +8,6 @@ import java.util.LinkedList;
 import java.util.ListIterator;
 import java.util.Scanner;
 
-/**
- * @author Andrzej Zamora
- */
 public class FlightAdministrationSystem {
     Airport airport;
     private LinkedList<Airport> airports = new LinkedList<>();
