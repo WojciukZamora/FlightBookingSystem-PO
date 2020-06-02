@@ -1,3 +1,6 @@
+/**
+ * @author Andrzej Zamora
+ */
 public class OurDate {
     protected int day;
     protected int month;

@@ -1,12 +1,11 @@
+/**
+ * @author Andrzej Zamora
+ */
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.util.*;
 
-
-/**
- * @author Andrzej Zamora
- */
 public class Airport {
     private static int flightNumber = 132578;
 
