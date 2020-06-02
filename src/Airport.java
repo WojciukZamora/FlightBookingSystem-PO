@@ -120,6 +120,14 @@ public class Airport {
             if(++i!=1)writePlanes.println();
             Plane plane = itPlanes.next();
             writePlanes.print(plane.getSerialNr());
+            PrintWriter writePlane = new PrintWriter(new File("Files/Planes/" + plane.getSerialNr() + ".txt"));
+            writePlane.println(plane.getName());
+            writePlane.println(plane.getPlaneSize());
+            writePlane.println(plane.getMaxDistance());
+            writePlane.println(plane.getDestiny());
+            writePlane.println(plane.getSerialNr());
+            writePlane.println(plane.getAvailability());
+            writePlane.println(plane.getVelocity());
         }
         writePlanes.close();
     }
@@ -132,19 +140,31 @@ public class Airport {
             if(++i!=1)writeFlights.println();
             Flight flight = itFlights.next();
             writeFlights.print(flight.getNr());
+            PrintWriter writeFlight = new PrintWriter(new File("Files/Flights/" + flight.getNr() + "/" + flight.getNr() + ".txt"));
+            writeFlight.println(flight.getNr());
+            writeFlight.println(flight.getFromCountry());
+            writeFlight.println(flight.getFromCity());
+            writeFlight.println(flight.getToCountry());
+            writeFlight.println(flight.getToCity());
+            writeFlight.println(flight.getPlane().getSerialNr());
+            writeFlight.println(flight.getDistance());
+            writeFlight.println(flight.getStartTime().getDay());
+            writeFlight.println(flight.getStartTime().getMonth());
+            writeFlight.println(flight.getStartTime().getYear());
+            writeFlight.println(flight.getStartTime().getHour());
+            writeFlight.println(flight.getEndTime().getDay());
+            writeFlight.println(flight.getEndTime().getMonth());
+            writeFlight.println(flight.getEndTime().getYear());
+            writeFlight.println(flight.getEndTime().getHour());
             flight.exportClients();
         }
         writeFlights.close();
     }
 
 
-
-
-
     public String getCountry() {
         return country;
     }
-
     public void setCountry(String country) {
         this.country = country;
     }
@@ -152,7 +172,6 @@ public class Airport {
     public String getCity() {
         return city;
     }
-
     public void setCity(String city) {
         this.city = city;
     }
@@ -160,7 +179,6 @@ public class Airport {
     public String getSizeType() {
         return sizeType;
     }
-
     public void setSizeType(String sizeType) {
         this.sizeType = sizeType;
     }
@@ -168,7 +186,6 @@ public class Airport {
     public int getAirportSize() {
         return airportSize;
     }
-
     public void setAirportSize(int airportSize) {
         this.airportSize = airportSize;
     }
@@ -176,7 +193,6 @@ public class Airport {
     public String getDirectType() {
         return directType;
     }
-
     public void setDirectType(String directType) {
         this.directType = directType;
     }
@@ -184,7 +200,6 @@ public class Airport {
     public double getLocalizationX() {
         return localizationX;
     }
-
     public void setLocalizationX(double localizationX) {
         this.localizationX = localizationX;
     }
@@ -192,7 +207,6 @@ public class Airport {
     public double getLocalizationY() {
         return localizationY;
     }
-
     public void setLocalizationY(double localizationY) {
         this.localizationY = localizationY;
     }

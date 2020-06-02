@@ -87,6 +87,12 @@ public class Flight {
     public OurDate getEndTime() {
         return endTime;
     }
+    public Plane getPlane() {
+        return plane;
+    }
+    public double getDistance() {
+        return distance;
+    }
     public void addClient(Client client){
         clients.add(client);
     }
@@ -96,9 +102,11 @@ public class Flight {
     public List<Client> getClients(){
         return clients;
     }
+
     public int getFreeChairs(){
         return (plane.getSize()-clients.size());
     }
+
     public void importClients() throws FileNotFoundException{
         Scanner readClients = new Scanner(new File("Files/Flights/" +nr+"/"+nr+"Clients.txt"));
         while(readClients.hasNextLine()){

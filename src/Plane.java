@@ -35,6 +35,12 @@ public class Plane {
     public int getSerialNr(){
         return serialNr;
     }
+    public int getPlaneSize() {
+        return planeSize;
+    }
+    public String getDestiny() {
+        return destiny;
+    }
 
     public Boolean getAvailability() {
         return availability;
