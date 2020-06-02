@@ -7,4 +7,16 @@ public class Person extends Client {
         this.surname = surname;
         this.idNumber = idNumber;
     }
+
+    public String getFirstname() {
+        return firstname;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public int getIdNumber() {
+        return idNumber;
+    }
 }
