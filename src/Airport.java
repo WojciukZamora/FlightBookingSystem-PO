@@ -56,6 +56,7 @@ public class Airport {
             flight = new Flight();
             flight.setNr(readFlights.nextInt());
             Scanner readFlightInfo = new Scanner(new File("Files/Flights/" + flight.getNr() + "/" + flight.getNr() + "Info.txt"));
+            readFlightInfo.useLocale(Locale.US);
             flight.setNr(readFlightInfo.nextInt());
             flight.setFromCountry(readFlightInfo.next());
             flight.setFromCity(readFlightInfo.next());
