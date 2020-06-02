@@ -57,7 +57,7 @@ public class Airport {
         plane.setMaxDistance(readPlane.nextInt());
         plane.setDestiny(readPlane.next());
         plane.setSerialNr(readPlane.nextInt());
-        plane.setAvailibility(readPlane.nextBoolean());
+        plane.setAvailability(readPlane.nextBoolean());
         plane.setVelocity(readPlane.nextInt());
         return plane;
     }
