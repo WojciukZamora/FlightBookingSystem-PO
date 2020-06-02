@@ -63,8 +63,8 @@ public class Airport {
     public void importFlights() throws FileNotFoundException {
         Scanner readFlights = new Scanner(new File("Files/Airports/" + airportName + "/" + airportName + "Flights.txt"));
         while(readFlights.hasNextLine()) {
-            flight.setNr(readFlightInfo.nextInt());
-            Scanner readFlightInfo = new Scanner(new File("Files/Flights/" + flight.getNr + "/" + flight.getNr + "Info.txt"));
+            flight.setNr(readFlights.nextInt());
+            Scanner readFlightInfo = new Scanner(new File("Files/Flights/" + flight.getNr() + "/" + flight.getNr() + "Info.txt"));
             //flight = new Flight();
             flight.setNr(readFlightInfo.nextInt());
             flight.setFromCountry(readFlightInfo.next());
