@@ -56,6 +56,13 @@ public class FlightAdministrationSystem {
                 return;
             }
         }
+        System.out.println("No airport with the same data");
+    }
+
+    public void writeOutAirports() {
+        for (Airport airport : airports) {
+            System.out.println(airport);
+        }
     }
 
     public void exportAirports() throws FileNotFoundException {

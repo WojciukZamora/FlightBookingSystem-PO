@@ -97,6 +97,7 @@ public class Airport {
                 return;
             }
         }
+        System.out.println("No plane found with the same data");
     }
 
     public void removeFlight(int nr) {
@@ -212,5 +213,18 @@ public class Airport {
     }
     public void setLocalizationY(double localizationY) {
         this.localizationY = localizationY;
+    }
+
+    @Override
+    public String toString() {
+        return "Airport{" +
+                "country= " + country +
+                ", city= " + city +
+                ", sizeType= " + sizeType +
+                ", airportSize= " + airportSize +
+                ", directType= " + directType  +
+                ", localizationX= " + localizationX +
+                ", localizationY= " + localizationY +
+                '}';
     }
 }
