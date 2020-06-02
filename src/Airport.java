@@ -65,7 +65,6 @@ public class Airport {
         while(readFlights.hasNextLine()) {
             flight.setNr(readFlights.nextInt());
             Scanner readFlightInfo = new Scanner(new File("Files/Flights/" + flight.getNr() + "/" + flight.getNr() + "Info.txt"));
-            //flight = new Flight();
             flight.setNr(readFlightInfo.nextInt());
             flight.setFromCountry(readFlightInfo.next());
             flight.setFromCity(readFlightInfo.next());
@@ -89,20 +88,6 @@ public class Airport {
         }
     }
     public void addPlane(Plane plane) {
-        /*System.out.print("name: ");
-        plane.setName(console.next());
-        System.out.println("planeSize: ");
-        plane.setPlaneSize(console.nextInt());
-        System.out.println("maxDistance: ");
-        plane.setMaxDistance(console.nextInt());
-        System.out.println("destiny: ");
-        plane.setDestiny(console.next());
-        System.out.println("serialNr: ");
-        plane.setSerialNr(console.nextInt());
-        System.out.println("availibility: ");
-        plane.setAvailibility(console.nextBoolean());
-        System.out.println("velocity: ");
-        plane.setVelocity(console.nextInt());*/
         planes.add(plane);
     }
     public void addFlight(Flight flight) {
