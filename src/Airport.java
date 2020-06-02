@@ -128,6 +128,7 @@ public class Airport {
             writePlane.println(plane.getSerialNr());
             writePlane.println(plane.getAvailability());
             writePlane.println(plane.getVelocity());
+            writePlane.close();
         }
         writePlanes.close();
     }
