@@ -139,15 +139,10 @@ public class Flight {
             if(i!=1)writeFlight.println();
 
             if(x instanceof Firm){
-                System.out.print("Firm"+" "+((Firm)x).getCompanyName()+"as "+((Firm)x).getCompanyId());
                 writeFlight.print("Firm"+" "+((Firm)x).getCompanyName()+"as "+((Firm)x).getCompanyId());
-
             }
             if(x instanceof Person){
-
-                System.out.print("Person"+" "+((Person)x).getFirstname()+"ds "+((Person)x).getSurname()+" "+((Person)x).getIdNumber());
                 writeFlight.print("Person"+" "+((Person)x).getFirstname()+"ds "+((Person)x).getSurname()+" "+((Person)x).getIdNumber());
-
             }
         }
         writeFlight.close();
