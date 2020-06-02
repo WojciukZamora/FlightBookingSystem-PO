@@ -30,7 +30,7 @@ public class User {
             client=new Person(firstname,surname,idNumber);
         }
         else{
-            client=new Firm("ErrorWrongTypeOfTicket-1",1)
+            client=new Firm("ErrorWrongTypeOfTicket-1",1);
 
         }
         return client;

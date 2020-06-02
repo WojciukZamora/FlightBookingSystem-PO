@@ -129,4 +129,39 @@ public class Flight {
 
 
     }
+
+    public void setNr(int nr) {
+        this.nr = nr;
+    }
+
+
+    public void setPlane(Plane plane) {
+        this.plane = plane;
+    }
+
+    public void setDistance(double distance) {
+        this.distance = distance;
+    }
+
+    public void setFromCity(String fromCity) {
+        this.fromCity = fromCity;
+    }
+
+    public void setFromCountry(String fromCountry) {
+        this.fromCountry = fromCountry;
+    }
+
+    public void setToCountry(String toCountry) {
+        this.toCountry = toCountry;
+    }
+
+    public void setToCity(String toCity) {
+        this.toCity = toCity;
+    }
+    public void setStartTime(OurDate startTime){
+    this.startTime=startTime;
+    }
+    public void setEndTime(OurDate endTime){
+    this.endTime=endTime;
+    }
 }

@@ -3,18 +3,18 @@
  */
 public class Plane {
     private String name;
-    private int size;
+    private int planeSize;
     private int maxDistance;
-    private String directType;
+    private String destiny;
     private int serialNr;
     private Boolean availability;
     private int velocity;
-    public Plane(String name, int size, int maxDistance, String directType, int serialNr, boolean availability, int velocity)
+    public Plane(String name, int planeSize, int maxDistance, String destiny, int serialNr, boolean availability, int velocity)
     {
         this.name=name;
-        this.size=size;
+        this.planeSize=planeSize;
         this.maxDistance=maxDistance;
-        this.directType=directType;
+        this.destiny=destiny;
         this.serialNr=serialNr;
         this.availability=availability;
         this.velocity=velocity;
@@ -27,10 +27,10 @@ public class Plane {
         return maxDistance;
     }
     public String getType(){
-        return directType;
+        return destiny;
     }
     public int getSize(){
-        return size;
+        return planeSize;
     }
     public int getSerialNr(){
         return serialNr;
@@ -45,5 +45,33 @@ public class Plane {
     }
     public void setAvailability(Boolean availability){
         this.availability=availability;
+    }
+
+    public void setDestiny(String destiny) {
+        this.destiny = destiny;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setPlaneSize(int planeSize) {
+        this.planeSize = planeSize;
+    }
+
+    public void setMaxDistance(int maxDistance) {
+        this.maxDistance = maxDistance;
+    }
+
+    public void setSerialNr(int serialNr) {
+        this.serialNr = serialNr;
+    }
+
+    public void setAvailibility(boolean availability) {
+        this.availability = availability;
+    }
+
+    public void setVelocity(int velocity) {
+        this.velocity = velocity;
     }
 }
