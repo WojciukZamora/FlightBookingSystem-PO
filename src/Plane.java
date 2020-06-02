@@ -43,9 +43,6 @@ public class Plane {
     public int getVelocity() {
         return velocity;
     }
-    public void setAvailability(Boolean availability){
-        this.availability=availability;
-    }
 
     public void setDestiny(String destiny) {
         this.destiny = destiny;
@@ -67,7 +64,7 @@ public class Plane {
         this.serialNr = serialNr;
     }
 
-    public void setAvailibility(boolean availability) {
+    public void setAvailability(boolean availability) {
         this.availability = availability;
     }
 

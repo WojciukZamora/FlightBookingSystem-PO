@@ -158,9 +158,11 @@ public class Flight {
     public void setToCity(String toCity) {
         this.toCity = toCity;
     }
+
     public void setStartTime(OurDate startTime){
     this.startTime=startTime;
     }
+
     public void setEndTime(OurDate endTime){
     this.endTime=endTime;
     }
