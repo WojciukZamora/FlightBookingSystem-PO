@@ -47,7 +47,7 @@ public class Airport {
         while(readPlanes.hasNextLine()) {
             //plane = new Plane();
             plane.setSerialNr(readPlanes.nextInt());
-            planes.add(importPlane(getSerialNr()));
+            planes.add(importPlane(plane.getSerialNr()));
         }
     }
     private Plane importPlane(int serialNr_param) throws FileNotFoundException {
