@@ -110,7 +110,7 @@ public class Flight {
             }
         }
 
-    }
+
     public void exportClients() throws FileNotFoundException{
         PrintWriter writeFlight= new PrintWriter(new File("Files/Flights/" +nr+"Clients.txt"));
         for(Object x : clients){
