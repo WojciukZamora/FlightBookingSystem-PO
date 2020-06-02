@@ -1,10 +1,7 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.ListIterator;
-import java.util.Scanner;
+import java.util.*;
 
 
 /**
@@ -21,6 +18,8 @@ public class Airport {
     private String directType;
     private double localizationX;
     private double localizationY;
+
+    private int day,month,year,hour;
 
 
     private Plane plane;
@@ -68,21 +67,23 @@ public class Airport {
             Scanner readFlightInfo = new Scanner(new File("Files/Flights/" + flight.getNr + "/" + flight.getNr + "Info.txt"));
             //flight = new Flight();
             flight.setNr(readFlightInfo.nextInt());
-            flight.setfromCountry(readFlightInfo.next());
+            flight.setFromCountry(readFlightInfo.next());
             flight.setFromCity(readFlightInfo.next());
             flight.setToCountry(readFlightInfo.next());
             flight.setToCity(readFlightInfo.next());
             int serialNr = readFlightInfo.nextInt();
             flight.setPlane(importPlane(serialNr));
             flight.setDistance(readFlightInfo.nextDouble());
-            flight.setStartTime.day(readFlightInfo.nextInt());
-            flight.setStartTime.month(readFlightInfo.nextInt());
-            flight.setStartTime.year(readFlightInfo.nextInt());
-            flight.setStartTime.hour(readFlightInfo.nextInt());
-            flight.setEndTime.day(readFlightInfo.nextInt());
-            flight.setEndTime.month(readFlightInfo.nextInt());
-            flight.setEndTime.year(readFlightInfo.nextInt());
-            flight.setEndTime.hour(readFlightInfo.nextInt());
+            day = readFlightInfo.nextInt();
+            month = readFlightInfo.nextInt();
+            year = readFlightInfo.nextInt();
+            hour = readFlightInfo.nextInt();
+            flight.setStartTime(new OurDate(day,month,year,hour));
+            day = readFlightInfo.nextInt();
+            month = readFlightInfo.nextInt();
+            year = readFlightInfo.nextInt();
+            hour = readFlightInfo.nextInt();
+            flight.setEndTime(new OurDate(day,month,year,hour));
             flight.importClients();
             flights.add(flight);
         }
