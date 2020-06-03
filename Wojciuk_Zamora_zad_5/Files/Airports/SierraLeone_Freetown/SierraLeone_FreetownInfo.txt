@@ -1,0 +1,7 @@
+SierraLeone
+Freetown
+SMALL
+10
+TOURIST
+-13.23
+8.48

@@ -1,0 +1,52 @@
+Person Janina Kowalska 26081020352
+Firm Kleix 6473892
+Person Neven Ekin 79081020352
+Person Atarah Barbara 79081020351
+Person Avigail Aksel 77081020351
+Person Adria Hagen  78574348035
+Person Walherich Hicks 11231291761
+Person Emil Harrell 87048977433
+Person Abdul Merle 40071639052
+Person Heckie Zhu 40071639052
+Person Laura Krajnc 67109629314
+Person Yasmine Almeida 42951375092
+Person Karam Badcock 97218914766
+Person Ranjit Steele 01152712138
+Person Irfan Pontecorvo 84481668377
+Person Leszek Sokół 36589932172
+Person Elżbieta Jedynak 86743575308
+Person Adela Wawrzaszek 65922334130
+Person Cyprian Stankiewicz 37167272879
+Person Miłogost Marszałek 32278520902
+Person Grzegorz Brzęczyszczykiewicz 22019852079
+Person Krzesimir Fabian 73501246378
+Person Henryka Wasilewska 70632180999
+Person Lucyna Wolanska 55035976976
+Person Eunika Paszek 65988390809
+Person Klaudiusz Wójcik 74656501303
+Person Niklas Kurz 18134502412
+Person Leopold Sander 60743702169
+Person Gretchen Unruh 97058279776
+Person Leopold Mangold 12698396267
+Firm Genetic 4562469
+Firm Industry 9572583
+Firm Glass 5887025
+Firm Admire 5007878
+Firm Respectable 8985161
+Firm Grave 1921476
+Firm Circulate 8518942
+Firm Spoil 4915454
+Firm Monarch 5709101
+Firm Fold 2080452
+Firm Cancer 8251445
+Firm Performance 5921429
+Firm Square 2200299
+Firm Favor 7641628
+Firm Firefighter 3773253
+Firm Committee 6204481
+Firm Sight 4995931
+Firm Stop 1776114
+Firm Trance 5737765
+Firm Lake 7224683
+Firm Say 6060329
+Firm Färber 0311770

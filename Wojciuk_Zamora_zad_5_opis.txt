@@ -1,0 +1,3 @@
+mkdirs (source: https://stackoverflow.com/questions/3634853/how-to-create-a-directory-in-java)
+
+This library is a part of java.io.FIle. It helps user to make a folder and pathnames right from the app.
