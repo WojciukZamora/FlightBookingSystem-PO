@@ -1,2 +1,15 @@
 Person Janina Kowalska 26381020352
 Firm Kleix 6473892
+Person Leopold Sander 60743702169
+Person Janina Kowalska 26081020352
+Firm Trance 5737765
+Person Laura Krajnc 67109629314
+Firm Circulate 8518942
+Firm Respectable 8985161
+Person Irfan Pontecorvo 84481668377
+Person Adela Wawrzaszek 65922334130
+Person Krzesimir Fabian 73501246378
+Person Walherich Hicks 11231291761
+Firm Industry 9572583
+Firm Trance 5737765
+Person Avigail Aksel 77081020351

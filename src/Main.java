@@ -22,6 +22,7 @@ public class Main {
 
 
         int choose,choose2;
+        Client client;
         Scanner console = new Scanner(System.in);
         console.useLocale(Locale.US);
         FlightAdministrationSystem admin = new FlightAdministrationSystem();
@@ -31,9 +32,20 @@ public class Main {
         Flight flight;
         System.out.println("Welcome to the Flight Administration System!");
         while(true) {
-            //BOT
+            //BOT5
+
+            Bot bot=new Bot();
             if(currTime.getHour() == 1) {
-                ;//TODO
+                for(Airport x : admin.getAirports()){
+                    for(Flight y : (x).getFlights()){
+                        for(int i=0; i<bot.getRandomClientsAmount(y.getFreeChairs());i++){
+                            client=bot.getRandomClient();
+                            y.addClient(client);
+
+                        }
+
+                    }
+                }
             }
             //BOT
             System.out.println("Current time: " + currTime.toString());

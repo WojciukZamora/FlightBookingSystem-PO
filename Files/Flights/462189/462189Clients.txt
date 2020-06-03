@@ -1,3 +1,39 @@
 Person Mariusz Kasztan 82923120320
 Person Bartosz Pieciul 82923120328
 Firm Murex 6482990
+Person Walherich Hicks 11231291761
+Person Klaudiusz Wójcik 74656501303
+Person Janina Kowalska 26081020352
+Person Janina Kowalska 26081020352
+Firm Square 2200299
+Person Eunika Paszek 65988390809
+Person Leopold Mangold 12698396267
+Person Adela Wawrzaszek 65922334130
+Person Grzegorz Brzęczyszczykiewicz 22019852079
+Firm Trance 5737765
+Person Irfan Pontecorvo 84481668377
+Person Abdul Merle 40071639052
+Person Elżbieta Jedynak 86743575308
+Firm Cancer 8251445
+Person Lucyna Wolanska 55035976976
+Person Elżbieta Jedynak 86743575308
+Firm Admire 5007878
+Firm Grave 1921476
+Person Niklas Kurz 18134502412
+Firm Industry 9572583
+Firm Sight 4995931
+Person Grzegorz Brzęczyszczykiewicz 22019852079
+Person Leopold Mangold 12698396267
+Person Adela Wawrzaszek 65922334130
+Firm Kleix 6473892
+Person Krzesimir Fabian 73501246378
+Person Henryka Wasilewska 70632180999
+Firm Genetic 4562469
+Person Atarah Barbara 79081020351
+Person Walherich Hicks 11231291761
+Firm Cancer 8251445
+Person Laura Krajnc 67109629314
+Firm Grave 1921476
+Firm Monarch 5709101
+Person Abdul Merle 40071639052
+Person Neven Ekin 79081020352

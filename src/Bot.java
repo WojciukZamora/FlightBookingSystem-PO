@@ -7,7 +7,8 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Bot {
-    private Client client;
+    private Firm firm;
+    private Person person;
     private int wantedChairs;
     private int randomClientsAmount;
     Random generator = new Random();
@@ -20,7 +21,7 @@ public class Bot {
     public Client getRandomClient() throws FileNotFoundException {
         String firstname;
         String surname;
-        int idNumber;
+        long idNumber;
         String companyName;
         int companyId;
         int los=generator.nextInt(50);
@@ -28,22 +29,24 @@ public class Bot {
         for(int i =0;i<los;i++){
             readRandomCilients.nextLine();
         }
-        if (readRandomCilients.next()=="Person"){
+        String clientType =readRandomCilients.next();
+        if (clientType.equals("Person")){
             firstname=readRandomCilients.next();
             surname=readRandomCilients.next();
-            idNumber=readRandomCilients.nextInt();
-            client= new Person(firstname,surname,idNumber);
+            idNumber=readRandomCilients.nextLong();
+            person= new Person(firstname,surname,idNumber);
 
+            return person;
 
         }
-        if (readRandomCilients.next()=="Firm"){
+        else {
             companyName=readRandomCilients.next();
             companyId=readRandomCilients.nextInt();
-            client=new Firm(companyName,companyId);
+            firm=new Firm(companyName,companyId);
 
-
+            return firm;
         }
 
-        return client;
+
     }
 }

@@ -169,7 +169,9 @@ public class Airport {
         }
         writeFlights.close();
     }
-
+    public LinkedList<Flight> getFlights() {
+        return flights;
+    }
 
     public String getCountry() {
         return country;

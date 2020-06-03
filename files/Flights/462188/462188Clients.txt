@@ -1,3 +1,7 @@
 Person Bartosz Pieciul 82923120328
 Person Bartosz Pieciul 82923120328
 Firm Drutex 6482992
+Person Adela Wawrzaszek 65922334130
+Firm Firefighter 3773253
+Firm Square 2200299
+Person Gretchen Unruh 97058279776
