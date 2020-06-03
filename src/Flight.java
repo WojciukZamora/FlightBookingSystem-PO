@@ -39,33 +39,19 @@ public class Flight {
         this.startTime = null;
         this.endTime = null;
     }
-    public Flight(int nr, String fromCountry,String fromCity, String toCountry, String toCity, Plane plane,Double xFrom,Double yFrom,Double xTo,Double yTo, OurDate startTime){
-        this.nr=nr;
-        this.fromCity=fromCity;
-        this.fromCountry=fromCountry;
-        this.toCity=toCity;
-        this.toCountry=toCountry;
-        this.plane=plane;
-        this.distance=Math.sqrt(Math.pow((xFrom-xTo),2)+Math.pow((yFrom-yTo),2));
-        this.startTime=startTime;
-        /**this.endTime=startTime+2hour+Math.round(distance/plane.getVelocity)hour
-         *
-         */
-
-
-
+    public Flight(Flight flight) {
+        this.nr = flight.nr;
+        this.fromCountry = flight.fromCountry;
+        this.fromCity = flight.fromCity;
+        this.toCountry = flight.toCountry;
+        this.toCity = flight.toCity;
+        this.plane = flight.plane;
+        this.distance = flight.distance;
+        this.startTime = flight.startTime;
+        this.endTime = flight.endTime;
+        this.clients = flight.clients;
     }
-    public Flight(int nr, String fromCountry,String fromCity, String toCountry, String toCity, Plane plane,Double distance, OurDate startTime,OurDate endTime){
-        this.nr=nr;
-        this.fromCity=fromCity;
-        this.fromCountry=fromCountry;
-        this.toCity=toCity;
-        this.toCountry=toCountry;
-        this.plane=plane;
-        this.distance=distance;
-        this.startTime=startTime;
-        this.endTime=endTime;
-    }
+
     public int getNr(){
         return nr;
     }
@@ -99,7 +85,7 @@ public class Flight {
     public void removeClient(int seatNr){
         clients.remove((seatNr-1));
     }
-    public List<Client> getClients(){
+    public LinkedList<Client> getClients(){
         return clients;
     }
     public int getClientsListSize(){ return  clients.size();}
@@ -187,5 +173,20 @@ public class Flight {
 
     public void setEndTime(OurDate endTime){
     this.endTime=endTime;
+    }
+
+    @Override
+    public String toString() {
+        return "Flight{" +
+                "nr=" + nr +
+                ", fromCountry='" + fromCountry +
+                ", fromCity='" + fromCity +
+                ", toCountry='" + toCountry +
+                ", toCity='" + toCity +
+                ", plane=" + plane +
+                ", distance=" + distance +
+                ", startTime=" + startTime +
+                ", endTime=" + endTime +
+                '}';
     }
 }

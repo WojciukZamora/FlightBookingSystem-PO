@@ -3,9 +3,9 @@
  * @author Paweł Wojciuk
  */
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.Date;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Locale;
 import java.util.Scanner;
 
@@ -18,10 +18,12 @@ public class Main {
         year = readTime.nextInt();
         hour = readTime.nextInt();
         OurDate currTime = new OurDate(day,month,year,hour);
+        int flightNumber = 132578;
 
 
 
         int choose,choose2;
+        String choose3;
         Client client;
         Scanner console = new Scanner(System.in);
         console.useLocale(Locale.US);
@@ -35,6 +37,7 @@ public class Main {
             //BOT5
 
             Bot bot=new Bot();
+            User user = new User();
             if(currTime.getHour() == 1) {
                 for(Airport x : admin.getAirports()){
                     for(Flight y : (x).getFlights()){
@@ -85,9 +88,9 @@ public class Main {
                             airport.setDirectType(console.next());
                             System.out.println("Co-ordinates:");
                             System.out.print("X: ");
-                            airport.setLocalizationX(console.nextDouble());
+                            airport.setX(console.nextDouble());
                             System.out.print("Y: ");
-                            airport.setLocalizationY(console.nextDouble());
+                            airport.setY(console.nextDouble());
                             admin.addAirport(airport);
                             break;
                         case 2:
@@ -163,7 +166,7 @@ public class Main {
                     System.out.print("City: ");
                     airport.setCity(console.next());
                     System.out.println("Available options:");
-                    System.out.println("1. Add flight, which will start in arpoirt: " + airport.getCountry() + " " + airport.getCity());
+                    System.out.println("1. Add flight, which will start in airpoirt: " + airport.getCountry() + " " + airport.getCity());
                     System.out.println("2. Remove flight which starts from airport: " + airport.getCountry() + " " + airport.getCity());
                     System.out.println("3. Write out all flights starting from airport: " + airport.getCountry() + " " + airport.getCity());
                     System.out.println("Default. Go back to main menu");
@@ -171,19 +174,115 @@ public class Main {
                     choose2 = console.nextInt();
                     switch(choose2) {
                         case 1:
-                            admin.addFlight(airport.getCountry(),airport.getCity());
+                            flight = new Flight();
+                            System.out.println("Enter data of flight you want to add:");
+                            flight.setNr(++flightNumber);
+                            flight.setFromCountry(airport.getCountry());
+                            flight.setFromCity(airport.getCity());
+                            System.out.print("Target country: ");
+                            flight.setToCountry(console.next());
+                            System.out.print("Target city: ");
+                            flight.setToCity(console.next());
+                            Airport airportFrom = admin.searchAirportByCountryCity(flight.getFromCountry(), flight.getFromCity());
+                            Airport airportTo = admin.searchAirportByCountryCity(flight.getToCountry(), flight.getToCity());
+
+                            System.out.print("Plane serialNr: ");
+                            plane = new Plane();
+                            plane.setSerialNr(console.nextInt());
+                            flight.setPlane(admin.airport.searchPlaneBySerialNr(plane.getSerialNr()));
+                            flight.setDistance(111*Math.sqrt(Math.pow((airportFrom.getX()-airportTo.getX()),2)+
+                                                             Math.pow((airportFrom.getY()-airportTo.getY()),2)));
+                            System.out.println("Enter start time:");
+                            System.out.print("day: ");
+                            day = console.nextInt();
+                            System.out.print("month: ");
+                            month = console.nextInt();
+                            System.out.print("year: ");
+                            year = console.nextInt();
+                            System.out.print("hour: ");
+                            hour = console.nextInt();
+                            flight.setStartTime(new OurDate(day,month,year,hour));
+                            OurDate tempTime1 = new OurDate(day,month,year,hour);
+                            OurDate tempTime2 = new OurDate(day,month,year,hour);
+                            tempTime2.increase(2 + (int)Math.round(flight.getDistance()/plane.getVelocity()));
+                            flight.setEndTime(tempTime2);
+
+                            admin.airport.addFlight(flight);
+                            System.out.println("Do you want the flight to be scheduled once a week for a year? (yes/no)");
+                            choose3 = console.next();
+                            if(choose3.equals("yes")) {
+                                for(int i=1;i<=54;++i) {
+                                    flight.setNr(++flightNumber);
+                                    tempTime1.increase(168);
+                                    tempTime2.increase(168);
+                                    flight.setStartTime(new OurDate(tempTime1));
+                                    flight.setEndTime(new OurDate(tempTime2));
+                                    admin.airport.addFlight(new Flight(flight));
+                                }
+                            }
                             break;
                         case 2:
+                            flight = new Flight();
+                            System.out.println("Enter data of flight you want to remove:");
+                            System.out.print("nr: ");
+                            flight.setNr(console.nextInt());
+                            airport = admin.searchAirportByCountryCity(airport.getCountry(), airport.getCity());
+                            admin.airport.removeFlight(flight.getNr());
                             break;
                         case 3:
+                            airport = admin.searchAirportByCountryCity(airport.getCountry(), airport.getCity());
+                            airport.writeOutFlights();
                             break;
                         default:
                             break;
                     }
                     break;
-                    //
-                    break;
                 case 4:
+                    System.out.println("Manage clients");
+                    System.out.println("Select airport in which flight should start:");
+                    airport = new Airport();
+                    System.out.print("Country: ");
+                    airport.setCountry(console.next());
+                    System.out.print("City: ");
+                    airport.setCity(console.next());
+                    airport = admin.searchAirportByCountryCity(airport.getCountry(), airport.getCity());
+
+                    System.out.println("Select flight:");
+                    flight = new Flight();
+                    System.out.print("nr: ");
+                    flight.setNr(console.nextInt());
+                    flight = airport.searchFlightByNr(flight.getNr());
+                    System.out.println("Available options:");
+                    System.out.println("1. Add client to flight nr " + flight.getNr());
+                    System.out.println("2. Remove client from flight nr " + flight.getNr());
+                    System.out.println("3. Write out all clients from flight nr " + flight.getNr());
+                    System.out.println("Default. Go back to main menu");
+                    System.out.print("Choose: ");
+                    choose2 = console.nextInt();
+                    switch(choose2) {
+                        case 1:
+                            System.out.print("How many tickets you want to buy? ");
+                            int ticketsAmount = console.nextInt();
+                            client = user.readClient();
+                            for(int i=0;i<ticketsAmount;++i) {
+                                admin.airport.flight.addClient(client);
+                            }
+                            break;
+                        case 2:
+                            System.out.print("Enter seatNr:");
+                            int seatNr = console.nextInt();
+                            admin.airport.flight.removeClient(seatNr);
+                            break;
+                        case 3:
+                            int i=0;
+                            for(Client c : admin.airport.flight.getClients()) {
+                                System.out.println("seatNr: " + i + " " +(c).toString());
+                                ++i;
+                            }
+                            break;
+                        default:
+                            break;
+                    }
                     break;
                 case 5:
                     currTime.increase(1);
@@ -198,7 +297,7 @@ public class Main {
             }
             System.out.println("Press enter to go forward");
             System.in.read();
-            System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+            System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
         }
     }
 }
