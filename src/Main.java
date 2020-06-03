@@ -251,7 +251,7 @@ public class Main {
                     flight = new Flight();
                     System.out.print("nr: ");
                     flight.setNr(console.nextInt());
-                    flight = admin.airport.searchFlightByNr(flight.getNr());
+                    flight = airport.searchFlightByNr(flight.getNr());
                     System.out.println("Available options:");
                     System.out.println("1. Add client to flight nr " + flight.getNr());
                     System.out.println("2. Remove client from flight nr " + flight.getNr());

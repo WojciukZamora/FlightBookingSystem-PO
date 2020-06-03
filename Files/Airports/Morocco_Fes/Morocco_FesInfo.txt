@@ -1,0 +1,7 @@
+Morocco
+Fes
+SMALL
+15
+TOURIST
+-5.0
+34.03
