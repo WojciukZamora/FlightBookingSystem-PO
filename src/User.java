@@ -10,26 +10,26 @@ public class User {
     public Client readClient(){
         String firstname;
         String surname;
-        int idNumber;
+        long idNumber;
         String companyName;
         int companyId;
         String choose;
         System.out.println("Choose type of ticket: firm or person");
         choose= console.next();
-        if(choose=="firm"||choose=="Firm"){
+        if(choose.equals("firm")||choose.equals("Firm")){
             System.out.println("company name:");
             companyName= console.next();
             System.out.println("companyId:");
             companyId = console.nextInt();
             client=new Firm(companyName,companyId);
         }
-        if(choose=="person"||choose=="Person"){
+        if(choose.equals("person")||choose.equals("Person")){
             System.out.println("firstname:");
             firstname= console.next();
             System.out.println("surnamename:");
             surname= console.next();
             System.out.println("ID:");
-            idNumber = console.nextInt();
+            idNumber = console.nextLong();
             client=new Person(firstname,surname,idNumber);
         }
         else{
