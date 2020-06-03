@@ -4,6 +4,7 @@
  */
 import java.io.File;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Locale;
@@ -12,13 +13,14 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) throws IOException, InterruptedException {
         Scanner readTime = new Scanner(new File("Files/Time.txt"));
+        Scanner readFlightNumber = new Scanner(new File("Files/FlightNumber.txt"));
         int day,month,year,hour;
         day = readTime.nextInt();
         month = readTime.nextInt();
         year = readTime.nextInt();
         hour = readTime.nextInt();
         OurDate currTime = new OurDate(day,month,year,hour);
-        int flightNumber = 132578;
+        int flightNumber = readFlightNumber.nextInt();
 
 
 
@@ -190,7 +192,7 @@ public class Main {
                             System.out.print("Plane serialNr: ");
                             plane = new Plane();
                             plane.setSerialNr(console.nextInt());
-                            flight.setPlane(admin.airport.searchPlaneBySerialNr(plane.getSerialNr()));
+                            flight.setPlane(airportFrom.searchPlaneBySerialNr(plane.getSerialNr()));
                             flight.setDistance(111*Math.sqrt(Math.pow((airportFrom.getX()-airportTo.getX()),2)+
                                                              Math.pow((airportFrom.getY()-airportTo.getY()),2)));
                             System.out.println("Enter start time:");
@@ -206,9 +208,9 @@ public class Main {
                             OurDate tempTime1 = new OurDate(day,month,year,hour);
                             OurDate tempTime2 = new OurDate(day,month,year,hour);
                             tempTime2.increase(2 + (int)Math.round(flight.getDistance()/plane.getVelocity()));
-                            flight.setEndTime(tempTime2);
+                            flight.setEndTime(new OurDate(tempTime2));
 
-                            admin.airport.addFlight(flight);
+                            airportFrom.addFlight(new Flight(flight));
                             System.out.println("Do you want the flight to be scheduled once a week for a year? (yes/no)");
                             choose3 = console.next();
                             if(choose3.equals("yes")) {
@@ -218,7 +220,7 @@ public class Main {
                                     tempTime2.increase(168);
                                     flight.setStartTime(new OurDate(tempTime1));
                                     flight.setEndTime(new OurDate(tempTime2));
-                                    admin.airport.addFlight(new Flight(flight));
+                                    airportFrom.addFlight(new Flight(flight));
                                 }
                             }
                             break;
@@ -266,17 +268,17 @@ public class Main {
                             int ticketsAmount = console.nextInt();
                             client = user.readClient();
                             for(int i=0;i<ticketsAmount;++i) {
-                                admin.airport.flight.addClient(client);
+                                airport.flight.addClient(client);
                             }
                             break;
                         case 2:
                             System.out.print("Enter seatNr:");
                             int seatNr = console.nextInt();
-                            admin.airport.flight.removeClient(seatNr);
+                            airport.flight.removeClient(seatNr);
                             break;
                         case 3:
                             int i=0;
-                            for(Client c : admin.airport.flight.getClients()) {
+                            for(Client c : airport.flight.getClients()) {
                                 System.out.println("seatNr: " + i + " " +(c).toString());
                                 ++i;
                             }
@@ -290,6 +292,12 @@ public class Main {
                     break;
                 case 6:
                     System.out.println("Exit");
+                    PrintWriter writeTime = new PrintWriter(new File("Files/Time.txt"));
+                    writeTime.println(currTime.getDay() + " " + currTime.getMonth() + " " + currTime.getYear() + " " + currTime.getHour());
+                    writeTime.close();
+                    PrintWriter writeFlightNumber = new PrintWriter(new File("Files/FlightNumber.txt"));
+                    writeFlightNumber.println(flightNumber);
+                    writeFlightNumber.close();
                     admin.exportAirports();
                     return;
                 default:

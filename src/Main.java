@@ -268,17 +268,17 @@ public class Main {
                             int ticketsAmount = console.nextInt();
                             client = user.readClient();
                             for(int i=0;i<ticketsAmount;++i) {
-                                admin.airport.flight.addClient(client);
+                                airport.flight.addClient(client);
                             }
                             break;
                         case 2:
                             System.out.print("Enter seatNr:");
                             int seatNr = console.nextInt();
-                            admin.airport.flight.removeClient(seatNr);
+                            airport.flight.removeClient(seatNr);
                             break;
                         case 3:
                             int i=0;
-                            for(Client c : admin.airport.flight.getClients()) {
+                            for(Client c : airport.flight.getClients()) {
                                 System.out.println("seatNr: " + i + " " +(c).toString());
                                 ++i;
                             }

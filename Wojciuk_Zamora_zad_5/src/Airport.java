@@ -179,7 +179,8 @@ public class Airport {
             writeFlight.println(flight.getFromCity());
             writeFlight.println(flight.getToCountry());
             writeFlight.println(flight.getToCity());
-            writeFlight.println(flight.getPlane().getSerialNr());
+            Plane plane = flight.getPlane();
+            writeFlight.println(plane.getSerialNr());
             writeFlight.println(flight.getDistance());
             writeFlight.print(flight.getStartTime().getDay()+" ");
             writeFlight.print(flight.getStartTime().getMonth()+" ");
