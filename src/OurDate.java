@@ -12,6 +12,12 @@ public class OurDate {
         this.year = year;
         this.hour = hour;
     }
+    public OurDate(OurDate ourDate) {
+        this.day = ourDate.day;
+        this.month = ourDate.month;
+        this.year = ourDate.year;
+        this.hour = ourDate.hour;
+    }
 
     public void increase(int hour) {
         this.hour = this.hour + hour;

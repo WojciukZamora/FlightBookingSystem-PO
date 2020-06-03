@@ -172,6 +172,7 @@ public class Airport {
         for(Flight flight : flights) {
             if(++i!=1)writeFlights.println();
             writeFlights.print(flight.getNr());
+            new File("Files/Flights/" + flight.getNr()).mkdirs();
             PrintWriter writeFlight = new PrintWriter(new File("Files/Flights/" + flight.getNr() + "/" + flight.getNr() + "Info.txt"));
             writeFlight.println(flight.getNr());
             writeFlight.println(flight.getFromCountry());

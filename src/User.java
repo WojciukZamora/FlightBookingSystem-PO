@@ -26,7 +26,7 @@ public class User {
         if(choose.equals("person")||choose.equals("Person")){
             System.out.println("firstname:");
             firstname= console.next();
-            System.out.println("surnamename:");
+            System.out.println("surname:");
             surname= console.next();
             System.out.println("ID:");
             idNumber = console.nextLong();
