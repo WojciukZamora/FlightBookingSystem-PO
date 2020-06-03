@@ -3,9 +3,7 @@
  * @author Paweł Wojciuk
  */
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.Date;
 import java.util.Locale;
 import java.util.Scanner;
 
@@ -18,6 +16,7 @@ public class Main {
         year = readTime.nextInt();
         hour = readTime.nextInt();
         OurDate currTime = new OurDate(day,month,year,hour);
+        int flightNumber = 132578;
 
 
 
@@ -85,9 +84,9 @@ public class Main {
                             airport.setDirectType(console.next());
                             System.out.println("Co-ordinates:");
                             System.out.print("X: ");
-                            airport.setLocalizationX(console.nextDouble());
+                            airport.setX(console.nextDouble());
                             System.out.print("Y: ");
-                            airport.setLocalizationY(console.nextDouble());
+                            airport.setY(console.nextDouble());
                             admin.addAirport(airport);
                             break;
                         case 2:
@@ -171,17 +170,55 @@ public class Main {
                     choose2 = console.nextInt();
                     switch(choose2) {
                         case 1:
-                            admin.addFlight(airport.getCountry(),airport.getCity());
+                            flight = new Flight();
+                            System.out.println("Enter data of flight you want to add:");
+                            flight.setNr(++flightNumber);
+                            flight.setFromCountry(airport.getCountry());
+                            flight.setFromCity(airport.getCity());
+                            System.out.print("Target country: ");
+                            flight.setToCountry(console.next());
+                            System.out.print("Target city: ");
+                            flight.setToCity(console.next());
+                            Airport airportFrom = admin.searchAirportByCountryCity(flight.getFromCountry(), flight.getFromCity());
+                            Airport airportTo = admin.searchAirportByCountryCity(flight.getToCountry(), flight.getToCity());
+
+                            System.out.print("Plane serialNr: ");
+                            plane = new Plane();
+                            plane.setSerialNr(console.nextInt());
+                            flight.setPlane(admin.airport.searchPlaneBySerialNr(plane.getSerialNr()));
+                            flight.setDistance(111*Math.sqrt(Math.pow((airportFrom.getX()-airportTo.getX()),2)+
+                                                             Math.pow((airportFrom.getY()-airportTo.getY()),2)));
+                            System.out.println("Enter start time:");
+                            System.out.print("day: ");
+                            day = console.nextInt();
+                            System.out.print("month: ");
+                            month = console.nextInt();
+                            System.out.print("year: ");
+                            year = console.nextInt();
+                            System.out.print("hour: ");
+                            hour = console.nextInt();
+                            flight.setStartTime(new OurDate(day,month,year,hour));
+                            OurDate tempTime = new OurDate(day,month,year,hour);
+                            tempTime.increase(2 + (int)Math.round(flight.getDistance()/plane.getVelocity()));
+                            flight.setEndTime(tempTime);
+
+                            admin.airport.addFlight(flight);
                             break;
                         case 2:
+                            flight = new Flight();
+                            System.out.println("Enter data of flight you want to remove:");
+                            System.out.print("nr: ");
+                            flight.setNr(console.nextInt());
+                            airport = admin.searchAirportByCountryCity(airport.getCountry(), airport.getCity());
+                            admin.airport.removeFlight(flight.getNr());
                             break;
                         case 3:
+                            airport = admin.searchAirportByCountryCity(airport.getCountry(), airport.getCity());
+                            admin.airport.writeOutFlights();
                             break;
                         default:
                             break;
                     }
-                    break;
-                    //
                     break;
                 case 4:
                     break;

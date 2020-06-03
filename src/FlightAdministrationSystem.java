@@ -10,12 +10,14 @@ import java.util.Locale;
 import java.util.Scanner;
 
 public class FlightAdministrationSystem {
-    Airport airport;// = new Airport();
+    Airport airport;
     private LinkedList<Airport> airports = new LinkedList<>();
     private ListIterator<Airport> it;
     private String airportName;
     private Plane plane;
+    private Flight flight;
     private Scanner console = new Scanner(System.in);
+    private static int flightNumber = 132578;
 
     public void importAirports() throws FileNotFoundException {
         Scanner readAirports = new Scanner(new File("Files/Airports.txt"));
@@ -31,8 +33,8 @@ public class FlightAdministrationSystem {
             airport.setSizeType(readAirport.next());
             airport.setAirportSize(readAirport.nextInt());
             airport.setDirectType(readAirport.next());
-            airport.setLocalizationX(readAirport.nextDouble());
-            airport.setLocalizationY(readAirport.nextDouble());
+            airport.setX(readAirport.nextDouble());
+            airport.setY(readAirport.nextDouble());
             airport.importPlanes();
             airport.importFlights();
             airports.add(airport);
@@ -99,6 +101,16 @@ public class FlightAdministrationSystem {
         }
     }
 
+    public Airport searchAirportByCountryCity(String country, String city) {
+        it = airports.listIterator();
+        while (it.hasNext()) {
+            Airport airport = it.next();
+            if (airport.getCountry().equals(country) && airport.getCity().equals(city))
+                return airport;
+        }
+        return null;
+    }
+
 
 
     public void exportAirports() throws FileNotFoundException {
@@ -116,8 +128,8 @@ public class FlightAdministrationSystem {
             writeAirport.println(airport.getSizeType());
             writeAirport.println(airport.getAirportSize());
             writeAirport.println(airport.getDirectType());
-            writeAirport.println(airport.getLocalizationX());
-            writeAirport.println(airport.getLocalizationY());
+            writeAirport.println(airport.getX());
+            writeAirport.println(airport.getY());
             airport.exportPlanes();
             airport.exportFlights();
             writeAirport.close();

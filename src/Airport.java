@@ -7,7 +7,6 @@ import java.io.PrintWriter;
 import java.util.*;
 
 public class Airport {
-    private static int flightNumber = 132578;
 
     //Airport
     private String country;
@@ -15,11 +14,10 @@ public class Airport {
     private String sizeType;
     private int airportSize;
     private String directType;
-    private double localizationX;
-    private double localizationY;
+    private double X;
+    private double Y;
     private LinkedList<Plane>planes = new LinkedList<>();
     private LinkedList<Flight>flights = new LinkedList<>();
-
 
     private Plane plane;
     private ListIterator<Plane> itPlanes;
@@ -104,6 +102,21 @@ public class Airport {
             System.out.println(plane);
         }
     }
+    public void writeOutFlights() {
+        for (Flight flight : flights) {
+            System.out.println(flight);
+        }
+    }
+
+    public Plane searchPlaneBySerialNr(int serialNr) {
+        itPlanes = planes.listIterator();
+        while(itPlanes.hasNext()) {
+            Plane plane = itPlanes.next();
+            if(plane.getSerialNr() == serialNr)
+                return plane;
+        }
+        return null;
+    }
 
     public void removeFlight(int nr) {
         itFlights = flights.listIterator();
@@ -117,6 +130,7 @@ public class Airport {
         }
         System.out.println("No flight found with this nr");
     }
+
 
     public void exportPlanes() throws FileNotFoundException {
         airportName = country + '_' + city;
@@ -208,18 +222,18 @@ public class Airport {
         this.directType = directType;
     }
 
-    public double getLocalizationX() {
-        return localizationX;
+    public double getX() {
+        return X;
     }
-    public void setLocalizationX(double localizationX) {
-        this.localizationX = localizationX;
+    public void setX(double x) {
+        this.X = x;
     }
 
-    public double getLocalizationY() {
-        return localizationY;
+    public double getY() {
+        return Y;
     }
-    public void setLocalizationY(double localizationY) {
-        this.localizationY = localizationY;
+    public void setY(double y) {
+        this.Y = y;
     }
 
     @Override
@@ -230,8 +244,8 @@ public class Airport {
                 ", sizeType= " + sizeType +
                 ", airportSize= " + airportSize +
                 ", directType= " + directType  +
-                ", localizationX= " + localizationX +
-                ", localizationY= " + localizationY +
+                ", localizationX= " + X +
+                ", localizationY= " + Y +
                 '}';
     }
 }

@@ -48,9 +48,8 @@ public class Flight {
         this.plane=plane;
         this.distance=Math.sqrt(Math.pow((xFrom-xTo),2)+Math.pow((yFrom-yTo),2));
         this.startTime=startTime;
-        /**this.endTime=startTime+2hour+Math.round(distance/plane.getVelocity)hour
-         *
-         */
+        this.endTime=startTime;
+        endTime.increase(2 + (int)Math.round(distance/plane.getVelocity()));
 
 
 
@@ -187,5 +186,20 @@ public class Flight {
 
     public void setEndTime(OurDate endTime){
     this.endTime=endTime;
+    }
+
+    @Override
+    public String toString() {
+        return "Flight{" +
+                "nr=" + nr +
+                ", fromCountry='" + fromCountry +
+                ", fromCity='" + fromCity +
+                ", toCountry='" + toCountry +
+                ", toCity='" + toCity +
+                ", plane=" + plane +
+                ", distance=" + distance +
+                ", startTime=" + startTime +
+                ", endTime=" + endTime +
+                '}';
     }
 }
