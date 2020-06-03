@@ -77,4 +77,17 @@ public class Plane {
     public void setVelocity(int velocity) {
         this.velocity = velocity;
     }
+
+    @Override
+    public String toString() {
+        return "Plane{" +
+                "name='" + name +
+                ", planeSize=" + planeSize +
+                ", maxDistance=" + maxDistance +
+                ", destiny='" + destiny +
+                ", serialNr=" + serialNr +
+                ", availability=" + availability +
+                ", velocity=" + velocity +
+                '}';
+    }
 }

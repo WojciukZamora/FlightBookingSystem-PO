@@ -14,6 +14,7 @@ public class FlightAdministrationSystem {
     private LinkedList<Airport> airports = new LinkedList<>();
     private ListIterator<Airport> it;
     private String airportName;
+    private Plane plane;
     private Scanner console = new Scanner(System.in);
 
     public void importAirports() throws FileNotFoundException {
@@ -56,7 +57,7 @@ public class FlightAdministrationSystem {
                 return;
             }
         }
-        System.out.println("No airport with the same data");
+        System.out.println("No airport found in that City and Country");
     }
 
     public void writeOutAirports() {
@@ -64,6 +65,41 @@ public class FlightAdministrationSystem {
             System.out.println(airport);
         }
     }
+    public void addPlane(Plane plane, String country, String city) {
+        it = airports.listIterator();
+        while (it.hasNext()) {
+            Airport airport = it.next();
+            if (airport.getCountry().equals(country) && airport.getCity().equals(city)) {
+                airport.addPlane(plane);
+                System.out.println("Plane added");
+                return;
+            }
+        }
+        System.out.println("No airport found in that City and Country");
+    }
+    public void removePlane(int serialNr, String country, String city) {
+        it = airports.listIterator();
+        while (it.hasNext()) {
+            Airport airport = it.next();
+            if (airport.getCountry().equals(country) && airport.getCity().equals(city)) {
+                airport.removePlane(serialNr);
+                System.out.println("Plane removed");
+                return;
+            }
+        }
+        System.out.println("No airport found in that City and Country");
+    }
+    public void writeOutPlanes(String country, String city) {
+        it = airports.listIterator();
+        while (it.hasNext()) {
+            Airport airport = it.next();
+            if (airport.getCountry().equals(country) && airport.getCity().equals(city)) {
+                airport.writeOutPlanes();
+            }
+        }
+    }
+
+
 
     public void exportAirports() throws FileNotFoundException {
         PrintWriter writeAirports = new PrintWriter(new File("Files/Airports.txt"));
@@ -73,6 +109,7 @@ public class FlightAdministrationSystem {
             if(i!=1)writeAirports.println();
             writeAirports.print(airport.getCountry() + " " + airport.getCity());
             airportName = airport.getCountry() + '_' + airport.getCity();
+            new File("Files/Airports/" + airportName + "/" + airportName).mkdirs();
             PrintWriter writeAirport = new PrintWriter(new File("Files/Airports/" + airportName + "/" + airportName + "Info.txt"));
             writeAirport.println(airport.getCountry());
             writeAirport.println(airport.getCity());

@@ -13,6 +13,22 @@ public class OurDate {
         this.hour = hour;
     }
 
+    public void increase(int hour) {
+        this.hour = this.hour + hour;
+        if(this.hour > 24) {
+            this.day += this.hour/24;
+            this.hour %= 24;
+            if(this.day > 30) {
+                this.month += this.day/30;
+                this.day %= 30;
+                if(this.month > 12) {
+                    this.year += this.month/12;
+                    this.month %= 12;
+                }
+            }
+        }
+    }
+
     public int getDay() {
         return day;
     }
@@ -27,5 +43,10 @@ public class OurDate {
 
     public int getHour() {
         return hour;
+    }
+
+    @Override
+    public String toString() {
+        return day + "." + month + "." + year + " " + hour;
     }
 }

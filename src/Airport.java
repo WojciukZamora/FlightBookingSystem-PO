@@ -97,7 +97,12 @@ public class Airport {
                 return;
             }
         }
-        System.out.println("No plane found with the same data");
+        System.out.println("No plane found with this serialNr");
+    }
+    public void writeOutPlanes() {
+        for (Plane plane : planes) {
+            System.out.println(plane);
+        }
     }
 
     public void removeFlight(int nr) {
@@ -106,11 +111,11 @@ public class Airport {
             Flight flight = itFlights.next();
             if(flight.getNr() == nr) {
                 itFlights.remove();
-                //TODO: może wrzucenie na historię zamiast usuwać??
                 System.out.println("Flight deleted");
                 return;
             }
         }
+        System.out.println("No flight found with this nr");
     }
 
     public void exportPlanes() throws FileNotFoundException {

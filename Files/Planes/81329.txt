@@ -1,0 +1,7 @@
+SzybkiSzybowiec3000
+90
+10000
+Scheduled
+81329
+true
+900
