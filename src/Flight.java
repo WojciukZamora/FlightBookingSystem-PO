@@ -98,7 +98,7 @@ public class Flight {
     public void removeClient(int seatNr){
         clients.remove((seatNr-1));
     }
-    public List<Client> getClients(){
+    public LinkedList<Client> getClients(){
         return clients;
     }
     public int getClientsListSize(){ return  clients.size();}

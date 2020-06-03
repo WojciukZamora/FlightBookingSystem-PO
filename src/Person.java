@@ -22,4 +22,13 @@ public class Person extends Client {
     public long getIdNumber() {
         return idNumber;
     }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "firstname='" + firstname +
+                ", surname='" + surname +
+                ", idNumber=" + idNumber +
+                '}';
+    }
 }

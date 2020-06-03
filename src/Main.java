@@ -4,6 +4,8 @@
  */
 import java.io.File;
 import java.io.IOException;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Locale;
 import java.util.Scanner;
 
@@ -34,6 +36,7 @@ public class Main {
             //BOT5
 
             Bot bot=new Bot();
+            User user = new User();
             if(currTime.getHour() == 1) {
                 for(Airport x : admin.getAirports()){
                     for(Flight y : (x).getFlights()){
@@ -221,6 +224,54 @@ public class Main {
                     }
                     break;
                 case 4:
+                    System.out.println("Manage clients");
+                    System.out.println("Select airport in which flight should start:");
+                    airport = new Airport();
+                    System.out.print("Country: ");
+                    airport.setCountry(console.next());
+                    System.out.print("City: ");
+                    airport.setCity(console.next());
+                    airport = admin.searchAirportByCountryCity(airport.getCountry(), airport.getCity());
+
+                    System.out.println("Select flight:");
+                    flight = new Flight();
+                    System.out.print("nr: ");
+                    flight.setNr(console.nextInt());
+                    flight = admin.airport.searchFlightByNr(flight.getNr());
+                    System.out.println("Available options:");
+                    System.out.println("1. Add client to flight nr " + flight.getNr());
+                    System.out.println("2. Remove client from flight nr " + flight.getNr());
+                    System.out.println("3. Write out all clients from flight nr " + flight.getNr());
+                    choose2 = console.nextInt();
+                    System.out.println("Default. Go back to main menu");
+                    System.out.print("Choose: ");
+                    switch(choose2) {
+                        case 1:
+                            System.out.print("How many tickets you want to buy? ");
+                            int ticketsAmount = console.nextInt();
+                            for(int i=0;i<ticketsAmount;++i) {
+                                client = user.readClient();
+                                admin.airport.flight.addClient(client);
+                            }
+                            break;
+                        case 2:
+                            System.out.print("Enter seatNr:");
+                            int seatNr = console.nextInt();
+                            admin.airport.flight.removeClient(seatNr);
+                            break;
+                        case 3:
+                            int i=0;
+                            for(Client c : admin.airport.flight.getClients()) {
+                                System.out.println("seatNr: " + i + " " +(c).toString());
+                                ++i;
+                            }
+                            break;
+                        default:
+                            break;
+                    }
+
+
+
                     break;
                 case 5:
                     currTime.increase(1);

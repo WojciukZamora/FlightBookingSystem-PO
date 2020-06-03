@@ -16,4 +16,12 @@ public class Firm extends Client {
     public int getCompanyId() {
         return companyId;
     }
+
+    @Override
+    public String toString() {
+        return "Firm{" +
+                "companyName='" + companyName +
+                ", companyId=" + companyId +
+                '}';
+    }
 }

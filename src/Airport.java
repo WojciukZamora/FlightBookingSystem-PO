@@ -21,7 +21,7 @@ public class Airport {
 
     private Plane plane;
     private ListIterator<Plane> itPlanes;
-    private Flight flight;
+    Flight flight;
     private ListIterator<Flight> itFlights;
     private int day,month,year,hour;
     private String airportName;
@@ -114,6 +114,16 @@ public class Airport {
             Plane plane = itPlanes.next();
             if(plane.getSerialNr() == serialNr)
                 return plane;
+        }
+        return null;
+    }
+
+    public Flight searchFlightByNr(int nr) {
+        itFlights = flights.listIterator();
+        while(itFlights.hasNext()) {
+            Flight flight = itFlights.next();
+            if(flight.getNr() == nr)
+                return flight;
         }
         return null;
     }
