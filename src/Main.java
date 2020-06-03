@@ -155,6 +155,32 @@ public class Main {
                     }
                     break;
                 case 3:
+                    System.out.println("Manage flights");
+                    System.out.println("Select airport in which flight should start:");
+                    airport = new Airport();
+                    System.out.print("Country: ");
+                    airport.setCountry(console.next());
+                    System.out.print("City: ");
+                    airport.setCity(console.next());
+                    System.out.println("Available options:");
+                    System.out.println("1. Add flight, which will start in arpoirt: " + airport.getCountry() + " " + airport.getCity());
+                    System.out.println("2. Remove flight which starts from airport: " + airport.getCountry() + " " + airport.getCity());
+                    System.out.println("3. Write out all flights starting from airport: " + airport.getCountry() + " " + airport.getCity());
+                    System.out.println("Default. Go back to main menu");
+                    System.out.print("Choose: ");
+                    choose2 = console.nextInt();
+                    switch(choose2) {
+                        case 1:
+                            admin.addFlight(airport.getCountry(),airport.getCity());
+                            break;
+                        case 2:
+                            break;
+                        case 3:
+                            break;
+                        default:
+                            break;
+                    }
+                    break;
                     //
                     break;
                 case 4:
